@@ -1,13 +1,3 @@
-﻿# How to run the application
-
-- Download required tools listed below.
-- Run the Spring server
-	>**NOTE**: Further instructions in spring README.
-- Run the GeoServer
-	>**NOTE**: Further instructions in geoserver README.
-- Run the Angular server
-	>**NOTE**: Further instructions in maprow-front README.
-
 # Basic dev environment setup
 
 ## Windows
@@ -55,14 +45,6 @@ Download **IntelliJ IDEA** from https://www.jetbrains.com/idea/download/#section
 	- Access the **Windows Command Prompt** and enter the following command:
 `npm install -g @angular/cli`
 	- Once all packages have been added, verify the installed version: `ng version`
-
-- Creating **Angular** project:
-	- To create new project type: `ng new project-name`.
-	- Access your project’s root folder from the **Windows Command Prompt** and enter the following command: `ng serve`
-The system will generate the environment for your **Angular** application.
-	- Use your web browser to access the **Angular** local development server: http://localhost:4200/.
-- Adding **Leaflet** library:
-	- Access the **Windows Command Prompt**, go to project's root folder and enter the following command: `npm install leaflet`.
 
 ## Linux
 
@@ -155,23 +137,54 @@ Download **NPM**  using package manager. Type `npm -v` to check if **NPM** was i
 Log in as root and run following command: `npm install -g @angular/cli`
 Run `ng version` to make sure installation was correct.
 
-- Add **Leaflet** library
-Access project's root folder and enter the following command: `npm install leaflet`.
 
-### Spring Boot:
+# How to run the application
 
-- To create **IntelliJ** project with **Spring Boot** go to https://start.spring.io/.
+## Clone the repository
 
-- Selecting project options:
-	- **Project**: Maven Project
-	- **Language**: Java
-	- **Spring Boot**: the latest version
-	- **Project Metadata**: any
-	- **Packaging**: Jar
-	- **Java**: your current version
+- Open **Git Bash**.
+- Navigate to desired directory.
+- Type `git clone https://github.com/astec/maprow.git` to clone the repository.
 
-- Selecting dependencies:
-	- **Spring Web**
-	- **Spring Data JPA**
-	- **PostgreSQL Driver**
->**NOTE**: optionally **Lombok**
+## ﻿Spring
+
+### Change the postgres password
+
+- Open `maprow-back/src/main/resources/application.properties` and change the password:
+`spring.datasource.password={password}`
+
+### Run the application
+- Open *spring* folder in **IntelliJ** and run main method.
+- Open your web browser and connect to http://localhost:8081/person. You should receive a table in *json* format that contains two people.
+- To get person by name enter http://localhost:8081/person/name/{name}
+- To get person by id enter http://localhost:8081/person/id/{id}
+
+## GeoServer
+
+### Change the CORS policy
+- Navigate to **GeoServer** installation folder.
+- Edit `webapps/geoserver/WEB-INF/web.xml`.
+	- Uncomment **CORS** filter for **Jetty**.
+	- Uncomment **CORS** filter-mapping. 
+	
+### Run the application
+
+- Start **GeoServer** via scripts in bin root folder or by starting service by yourself.
+	>E.g. Ubuntu#: 
+	`systemctl enable geoserver`
+	`systemctl start geoserver`
+- Open your web browser and connect to http://localhost:8080/geoserver. If installation from previous steps was correct, you should see **Welcome page**.    
+	>**NOTE**: default username nad password: admin; geoserver
+
+## Angular
+
+Change directory to *maprow-front*
+
+### Install dependencies
+
+- Run `npm i` to download required node modules.
+
+### Run the application
+
+- Run `ng serve` to build and run the application.
+- Open your web browser and connect to http://localhost:4200. You should see map and two records from database.
