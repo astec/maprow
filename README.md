@@ -17,7 +17,15 @@ Download **IntelliJ IDEA** from https://www.jetbrains.com/idea/download/#section
 
 - Installing **PostgreSQL**:
 	- Download **PostgreSQL** from https://www.enterprisedb.com/downloads/postgres-postgresql-downloads.
+	- In installation make sure that **PostgreSQL Server**, **Stack Builder** and **Command Line Tools** are selected.
+	- Proceed with installation.
 	- To check if **PostgreSQL** was successfully installed access the **Windows Command Prompt** and enter the following command: `psql --version`.
+
+- Installing **PostGIS** extension:
+	- Open **Stack Builder** application.
+	- Select **PostgreSQL server** and click Next.
+	- Expand spatial extensions and choose the latest **PostGIS** version.
+	- Proceed with installation.
 
 - Enabling **PostGIS** extension:
 	- Connect to existing database: `\c database-name` or create new one: `CREATE DATABASE database-name`.
@@ -146,7 +154,7 @@ Run `ng version` to make sure installation was correct.
 - Navigate to desired directory.
 - Type `git clone https://github.com/astec/maprow.git` to clone the repository.
 
-## ﻿Spring
+## Spring
 
 ### Change the postgres password
 
@@ -187,4 +195,4 @@ Change directory to *maprow-front*
 ### Run the application
 
 - Run `ng serve` to build and run the application.
-- Open your web browser and connect to http://localhost:4200. You should see website with map, legend and navigation bar.
+- Open your web browser and connect to http://localhost:4200. You should see two records from database and website with map, legend, navigation bar and highlighted states of USA.
