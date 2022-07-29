@@ -187,4 +187,4 @@ Change directory to *maprow-front*
 ### Run the application
 
 - Run `ng serve` to build and run the application.
-- Open your web browser and connect to http://localhost:4200. You should see map and two records from database.
+- Open your web browser and connect to http://localhost:4200. You should see website with map, legend and navigation bar.
