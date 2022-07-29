@@ -22,9 +22,7 @@ export class MapComponent implements AfterViewInit {
 		});
 
 		const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			maxZoom: 19,
-			minZoom: 12,
-			attribution: '© OpenStreetMap',
+			attribution: '© OpenStreetMap'
 		});
 
 		tiles.addTo(this.map);
