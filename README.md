@@ -5,7 +5,7 @@
 ### Java:
 
 Check your current **Java** version by typing `java -version` in the **Windows Command Prompt**. If there is no **Java** on your computer, download it from https://www.oracle.com/java/technologies/downloads.
->**NOTE**: **GeoServer** requires **Java 8** or **Java 11**.
+>**NOTE**: **GeoServer** requires **Java 11**.
 
 
 ### IntelliJ IDEA:
@@ -60,7 +60,7 @@ Download **IntelliJ IDEA** from https://www.jetbrains.com/idea/download/#section
 
 Type `java -version` to check if **Java** is installed on your machine. If there is no **Java** on your computer, download desired **Java** version using package manager.
 
->**NOTE**: **GeoServer** requires **Java 8** or **Java 11**
+>**NOTE**: **GeoServer** requires  **Java 11**
 
 ### IntelliJ IDEA:
 
