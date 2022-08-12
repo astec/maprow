@@ -1,0 +1,31 @@
+
+<div id="map-point-form">
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <label for="name">Name: </label>
+        </div>
+        <div class="col">
+          <input type="text" id="name" name="name" [(ngModel)]="mapPointStart.name" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="longitude">Longitude: </label>
+        </div>
+        <div class="col">
+          <input type="text" id="longitude" name="longitude" disabled="true" [ngModel]="mapPointStart.longitude" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="latitude">Latitude: </label>
+        </div>
+        <div class="col">
+          <input type="text" id="latitude" name="latitude" disabled="true" [ngModel]="mapPointStart.latitude" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

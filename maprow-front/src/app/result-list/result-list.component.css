@@ -1,0 +1,10 @@
+#results-list {
+  float: left;
+  width: auto;
+
+  border-radius: 5px;
+}
+
+#results {
+  cursor: pointer;
+}

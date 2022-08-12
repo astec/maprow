@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "maprow-front": {
+    "maprow-6-0v": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/maprow-front",
+            "allowedCommonJsDependencies": [
+              "leaflet",
+              "@asymmetrik/ngx-leaflet"
+            ],
+            "outputPath": "dist/maprow-6-0v",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,16 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/leaflet/dist/leaflet.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/leaflet-geosearch/dist/geosearch.css"
+            "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "./node_modules/leaflet/dist/leaflet.css",
+            "src/styles.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.slim.js",
-              "node_modules/popper.js/dist/umd/popper.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js",
-              "node_modules/leaflet-geosearch/dist/geosearch.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/leaflet/dist/leaflet.js"
             ]
           },
           "configurations": {
@@ -72,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "maprow-front:build:production"
+              "browserTarget": "maprow-6-0v:build:production"
             },
             "development": {
-              "browserTarget": "maprow-front:build:development"
+              "browserTarget": "maprow-6-0v:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "maprow-front:build"
+            "browserTarget": "maprow-6-0v:build"
           }
         },
         "test": {

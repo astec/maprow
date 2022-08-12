@@ -1,0 +1,16 @@
+#map {
+  height: 85vh;
+  z-index: 0;
+}
+
+#details-panel {
+  text-align: left;
+}
+
+.leaflet-bottom, .leaflet-left {
+  pointer-events: auto;
+}
+
+.leaflet-top, .leaflet-left {
+  margin-left: 50px;
+}
