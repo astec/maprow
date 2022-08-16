@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { DEFAULT_LATITUDE, DEFAULT_LONGITUDE } from '../app.constants';
+import {
+  DEFAULT_LATITUDE,
+  DEFAULT_LONGITUDE,
+  OSM,
+  cartoDBDark,
+  OCM
+} from '../app.constants';
 import { MapPoint } from '../shared/map-point.model';
 import { NominatimResponse } from '../shared/nominatim-response.model';
 import { Watermark } from './watermark';
@@ -9,11 +15,11 @@ import { StationsService } from '../services/stations.service';
 import {
   icon,
   latLng,
+  control,
   LeafletMouseEvent,
   Map,
   marker,
   MapOptions,
-  tileLayer,
   MarkerClusterGroup,
 } from 'leaflet';
 
@@ -46,10 +52,12 @@ export class MapComponent implements OnInit {
   initializeMap(map: Map) {
     this.map = map;
     this.createMarker();
+    this.initializeLayers();
     new Watermark({ position: 'topright' }).addTo(this.map);
     new Legend({ position: 'bottomleft' }).addTo(this.map);
     this.stationsService.makeStationsMarkers(this.map);
     this.markerClusterGroup = new MarkerClusterGroup({ removeOutsideVisibleBounds: true });
+
 
 
   }
@@ -69,16 +77,21 @@ export class MapComponent implements OnInit {
     this.createMarker();
   }
 
+  initializeLayers() {
+    var baseLayers = {
+      'OpenStreet Map': OSM,
+      'CartoDB Dark': cartoDBDark,
+      'CycleOSM': OCM
+    };
+
+    var overlayMaps = {};
+    var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
+  }
+
   private initializeMapOptions() {
     this.options = {
       zoom: 14,
-      layers: [
-        tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-
-          maxZoom: 18,
-          attribution: 'OSM',
-        }),
-      ],
+      layers: [OSM],
     };
   }
 

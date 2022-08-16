@@ -6,6 +6,8 @@ export const DEFAULT_LONGITUDE = 15.5044;
 export const BASE_NOMINATIM_URL: string = 'nominatim.openstreetmap.org';
 export const DEFAULT_VIEW_BOX: string = 'viewbox=-25.0000%2C70.0000%2C50.0000%2C40.0000';
 
+//default setting for icons
+
 const iconRetinaUrl = '../assets/city-bike.png';
 const iconUrl = '../assets/city-bike.png';
 const shadowUrl = '../assets/marker-shadow.png';
@@ -21,4 +23,22 @@ export const iconDefault = L.icon({
   shadowSize: [41, 41]
 });
 
+// List of map tilelayers
+
+const mAttr = '';
+
+const osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+export const OSM = L.tileLayer(osmUrl, {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+});
+
+const ocmUrl = 'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png';
+export const OCM = L.tileLayer(ocmUrl, {
+  attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases">CyclOSM</a>'
+});
+
+const cartoDBDarkUrl = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+export const cartoDBDark = L.tileLayer(cartoDBDarkUrl, {
+  attribution: '<a href="https://carto.com/attributions">CARTO</a>'
+});
 
