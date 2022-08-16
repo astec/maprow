@@ -1,7 +1,7 @@
-package com.maprow.config;
+package net.astec.person.config;
 
-import com.maprow.model.Person;
-import com.maprow.repository.PersonRepository;
+import net.astec.person.entity.Person;
+import net.astec.person.repository.PersonRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
