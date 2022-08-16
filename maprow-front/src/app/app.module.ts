@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 
 import { AppComponent } from './app.component';
 import { GeocodingComponent } from './geocoding/geocoding.component';
@@ -15,6 +16,7 @@ import { NominatimService } from './services/nominatim.service';
 import { PersonComponent } from './person/person.component';
 
 import { PersonService } from './person/person.service';
+import { StationsService } from './services/stations.service';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { PersonService } from './person/person.service';
     BrowserModule,
     FormsModule,
     LeafletModule,
+    LeafletMarkerClusterModule,
     AppRoutingModule,
     HttpClientModule
   ],
   providers: [
     NominatimService,
-    PersonService
+    PersonService,
+    StationsService
   ],
   bootstrap: [AppComponent]
 })

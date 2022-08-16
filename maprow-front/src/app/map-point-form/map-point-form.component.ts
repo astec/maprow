@@ -7,6 +7,6 @@ import { MapPoint } from '../shared/map-point.model';
   styleUrls: ['./map-point-form.component.css'],
 })
 export class MapPointFormComponent {
-  @Input() mapPointStart!: MapPoint;
-  @Input() mapPointEnd!: MapPoint;
+  @Input() mapPoint!: MapPoint;
+
 }

@@ -1,12 +1,12 @@
 <div>
-  <div id="map" leaflet (leafletMapReady)="initializeMap($event)" [leafletOptions]="options">
-    (leafletClick)="onMapClick($event)">
+  <div id="map" leaflet (leafletMapReady)="initializeMap($event)" [leafletOptions]="options"
+  (leafletClick)="onMapClick($event)" [leafletMarkerCluster] = "markerClusterData">
     <div class="leaflet-top leaflet-left">
       <app-geocoding (onSearch)="refreshSearchList($event)"></app-geocoding>
     </div>
-    
+
     <div id="details-panel" class="leaflet-bottom leaflet-right">
-      <app-map-point-form [mapPointStart]="mapPoint" [mapPointEnd]="mapPoint"></app-map-point-form>
+      <app-map-point-form [mapPoint]="mapPoint"></app-map-point-form>
     </div>
   </div>
   <app-result-list [results]="results" (locationSelected)="getAddress($event)"></app-result-list>

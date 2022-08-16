@@ -4,16 +4,19 @@ import { MapPoint } from '../shared/map-point.model';
 import { NominatimResponse } from '../shared/nominatim-response.model';
 import { Watermark } from './watermark';
 import { Legend } from './legend';
+import { StationsService } from '../services/stations.service';
+
 import {
   icon,
   latLng,
   LeafletMouseEvent,
   Map,
-  MapOptions,
   marker,
+  MapOptions,
   tileLayer,
-  Control
+  MarkerClusterGroup,
 } from 'leaflet';
+
 
 @Component({
   selector: 'app-map',
@@ -25,21 +28,30 @@ export class MapComponent implements OnInit {
   mapPoint!: MapPoint;
   options!: MapOptions;
   lastLayer: any;
-
+  markerClusterGroup!: MarkerClusterGroup;
+  markerClusterData = [];
   results!: NominatimResponse[];
+
+  constructor(private stationsService: StationsService) { }
+
+
 
   ngOnInit() {
     this.initializeDefaultMapPoint();
     this.initializeMapOptions();
-    
   }
-  
+
+
 
   initializeMap(map: Map) {
     this.map = map;
     this.createMarker();
     new Watermark({ position: 'topright' }).addTo(this.map);
     new Legend({ position: 'bottomleft' }).addTo(this.map);
+    this.stationsService.makeStationsMarkers(this.map);
+    this.markerClusterGroup = new MarkerClusterGroup({ removeOutsideVisibleBounds: true });
+
+
   }
 
   getAddress(result: NominatimResponse) {
@@ -62,7 +74,7 @@ export class MapComponent implements OnInit {
       zoom: 14,
       layers: [
         tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          minZoom: 10,
+
           maxZoom: 18,
           attribution: 'OSM',
         }),
@@ -72,7 +84,7 @@ export class MapComponent implements OnInit {
 
   private initializeDefaultMapPoint() {
     this.mapPoint = {
-      name: 'Hello',
+      name: 'Welcome in Zielona Góra',
       latitude: DEFAULT_LATITUDE,
       longitude: DEFAULT_LONGITUDE,
     };
@@ -87,21 +99,24 @@ export class MapComponent implements OnInit {
   }
 
   private createMarker() {
-    // this.clearMap();
-    const mapIcon = this.getDefaultIcon();
+
+    const mapIcon = icon({
+      iconUrl: 'assets/marker-icon.png'
+    });
     const coordinates = latLng([
       this.mapPoint.latitude,
       this.mapPoint.longitude,
     ]);
-    this.lastLayer = marker(coordinates).setIcon(mapIcon).addTo(this.map);
     this.map.setView(coordinates, this.map.getZoom());
+    this.lastLayer = marker(coordinates).setIcon(mapIcon).addTo(this.map);
+
   }
 
   private getDefaultIcon() {
     return icon({
       iconSize: [40, 40],
       iconAnchor: [13, 41],
-      iconUrl: 'assets/city-bike.png',
+      iconUrl: 'assets/city-bike.png'
     });
   }
 
