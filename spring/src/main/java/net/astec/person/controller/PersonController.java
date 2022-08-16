@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/person")
 @RequiredArgsConstructor
 public class PersonController {
 
     private final PersonService personService;
 
-    @GetMapping
+    @GetMapping(path = "/all")
     public List<Person> getPeople() {
         return personService.getPeople();
     }
 
-    @GetMapping(path = "person/{id}")
+    @GetMapping(path = "/{id}")
     public ResponseEntity<?> getPersonById(@PathVariable("id") Long id) {
         Person person = personService.getPersonById(id);
 
         return ResponseEntity.ok(person);
     }
 
-    @GetMapping(path = "person")
+    @GetMapping(path = "/person")
     public ResponseEntity<?> getPersonByName(@RequestParam String name) {
         Person person = personService.getPersonByName(name);
 
