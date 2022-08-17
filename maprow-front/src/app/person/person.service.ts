@@ -13,17 +13,17 @@ export class PersonService {
 
   getAll(): Observable<PersonModel[]>
   {
-    return this.httpClient.get<PersonModel[]>(this.serverUrl);
+    return this.httpClient.get<PersonModel[]>(`${this.serverUrl}/all`);
   }
 
   getById(id: number): Observable<PersonModel>
   {
-    return this.httpClient.get<PersonModel>(this.serverUrl + '/id/' + id);
+    return this.httpClient.get<PersonModel>(`${this.serverUrl}/${id}`);
   }
 
   getByName(name: String): Observable<PersonModel>
   {
-    return this.httpClient.get<PersonModel>(this.serverUrl + '/name/' + name);
+    return this.httpClient.get<PersonModel>(`${this.serverUrl}?name=${name}`);
   }
 
   private serverUrl = `${environment.applicationServerUrl}/person`;
