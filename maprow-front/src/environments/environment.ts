@@ -2,8 +2,13 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const applicationServerUrl = 'http://localhost:8081';
+const geoServerUrl         =  'http://localhost:8080/geoserver';
+
 export const environment = {
-  production: false
+  production: false,
+  applicationServerUrl: applicationServerUrl+'/api',
+  geoServerUrl: geoServerUrl
 };
 
 /*

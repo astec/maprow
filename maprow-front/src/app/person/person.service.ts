@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PersonModel } from './person.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,5 @@ export class PersonService {
     return this.httpClient.get<PersonModel>(this.serverUrl + '/name/' + name);
   }
 
-  private serverUrl = 'http://localhost:8081/person';
+  private serverUrl = `${environment.applicationServerUrl}/person`;
 }

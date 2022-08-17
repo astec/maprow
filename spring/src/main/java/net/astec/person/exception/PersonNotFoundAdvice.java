@@ -1,6 +1,5 @@
 package net.astec.person.exception;
 
-import net.astec.person.exception.PersonNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
