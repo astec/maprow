@@ -27,7 +27,7 @@ public class PersonController {
         return ResponseEntity.ok(person);
     }
 
-    @GetMapping(path = "/person")
+    @GetMapping(path = "")
     public ResponseEntity<?> getPersonByName(@RequestParam String name) {
         Person person = personService.getPersonByName(name);
 
