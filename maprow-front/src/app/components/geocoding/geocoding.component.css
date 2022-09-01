@@ -1,0 +1,19 @@
+.address-lookup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.searchInput {
+  padding: 7px;
+  width: 220px;
+  border-radius: 8px;
+  border: 2px solid lightgreen;
+}
+
+.locationBtn {
+  background-color: transparent;
+  border: 0;
+}

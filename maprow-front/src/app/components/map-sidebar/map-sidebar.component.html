@@ -1,0 +1,59 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="over">
+        <mat-tab-group>
+            <mat-tab label="{{'MAPSIDEBAR.labelPerson' | translate }}">
+                <app-login></app-login>
+            </mat-tab>
+            <mat-tab label="{{'MAPSIDEBAR.labelTourism' | translate }}">
+                <h2> {{ 'MAPSIDEBAR.labelTourismTitle' | translate }}</h2>
+                <p><strong>{{ 'MAPSIDEBAR.labelTourismInstruction' | translate }}</strong></p>
+                <p> {{ 'MAPSIDEBAR.labelTourismContent' | translate }}
+                </p>
+                <p>{{ 'MAPSIDEBAR.labelTourismGalleryInfo' | translate }}</p>
+                <div class="row">
+                    <div class="col-sm-8"><button id='btnMilleniumPark' class='btn btn-primary btn-block'>Park
+                            Tysiąclecia</button>
+                    </div>
+                    <div class="col-sm-4"><button id='btnMilleniumParkInfo'
+                            class='btn btn-warning btn-block'>INFO</button></div>
+                </div> <br>
+
+                <div class="row">
+                    <div class="col-sm-8"><button id='btnPalmHouse' class='btn btn-primary btn-block'>Palmiarnia
+                            Zielonogórska</button>
+                    </div>
+                    <div class="col-sm-4"><button id='btnPalmHouseInfo' class='btn btn-warning btn-block'>INFO</button>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="{{'MAPSIDEBAR.labelLegend' | translate }}">
+                <div class="container legend">
+                    <br>
+                    <h6 style="text-align: center; font-size: 16px; margin: 2px 12 px 8px; color: #777">{{ 'MAPSIDEBAR.labelLegendTitle' | translate }}</h6>
+                    <ul>
+                        <li style="background-color: #477AC2; "></li><span>{{'MAPSIDEBAR.labelLegendListOne' | translate}}</span><br>
+                        <li style="background-color: #448D40; "></li><span>{{'MAPSIDEBAR.labelLegendListTwo' | translate}}</span><br>
+                        <li style="background-color: #E6E696; "></li><span>{{'MAPSIDEBAR.labelLegendListThree' | translate}}</span><br>
+                        <li style="background-color: #E8E6E0; "></li><span>{{'MAPSIDEBAR.labelLegendListFour' | translate}}</span><br>
+                        <li style="background-color: #FFFFFF; "></li><span>{{'MAPSIDEBAR.labelLegendListFive' | translate}}</span><br>
+                        <li style="background-color: pink;"></li><span>{{'MAPSIDEBAR.labelLegendListSix' | translate}}</span><br>
+                    </ul>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+
+    </mat-drawer>
+
+    <!-- Conatiner with map -->
+
+    <div class="example-sidenav-content">
+
+        <app-map [map]="currentMap">
+        </app-map>
+
+        <button class="controlBtn" type="button" mat-mini-fab (click)="drawer.toggle()">
+            <img src="assets/images/icons/info.png" alt="click image button if you want to know more information">
+        </button>
+
+    </div>
+</mat-drawer-container>

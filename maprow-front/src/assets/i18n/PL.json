@@ -1,0 +1,31 @@
+{
+	"GEOCODING": {
+		"inputSearchPlaceHolder": "szukaj..."
+	},
+	"LOGIN": {
+		"titleLogintextCenter": "Zaloguj się do konta",
+		"matErrorMailAddress": "Proszę wprowadzić prawidłowy adres e-mail",
+		"matErrorMailRequired": "Wymagany adres e-mail",
+		"matErrorPassword": "Hasło musi się składać z ośmiu lub więcej znaków, musi zawierać przynajmniej jedną literę dużą, literę małą, cyfrę i znak specjalny",
+		"matErrorPasswordRequired": "Wymagane wprowadzenie hasła",
+		"BtnLogin": "Zaloguj się"
+	},
+
+	"MAPSIDEBAR": {
+		"labelPerson": "Konto",
+		"labelTourism": "Turystyka",
+		"labelTourismTitle": "Informator Turystyczny",
+		"labelTourismInstruction": "Tu możemy pisać dowolne teksty, wstawiać przyciski itp.",
+		"labelTourismContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam a incidunt quaerat ullam obcaecati facilis cum modi repudiandae recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos deserunt ut, iusto nostrum fuga porro consectetur officiis consequuntur repellat commodi vero in quibusdam dolorum reiciendis hic quia corporis quae quis.",
+		"labelTourismGalleryInfo": "Informacje o miejscach",
+		"labelLegend": "Legenda",
+		"labelLegendTitle": "Legenda",
+		"labelLegendListOne": "Drogi miejskie",
+		"labelLegendListTwo": "Drogi utwardzone",
+		"labelLegendListThree": "Drogi nieutwardzone",
+		"labelLegendListFour": "Szlaki rowerowe",
+		"labelLegendListFive": "Stacja rowerów miejskich",
+		"labelLegendListSix": "Granice"
+	}
+}
+

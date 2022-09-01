@@ -9,7 +9,7 @@ import { iconDefault } from '../app.constants'
   providedIn: 'root',
 })
 export class StationsService {
-  stations: string = 'assets/data/bikeStations.geojson';
+  stations: string = 'assets/data/ZG-bikeStations.geojson';
   markers: any = L.markerClusterGroup({disableClusteringAtZoom: 13});
 
   constructor(private http: HttpClient) {}

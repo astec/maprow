@@ -1,0 +1,26 @@
+mat-toolbar {
+    background-color:seagreen;
+    color: white;
+    max-height: 45px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+.example-icon {
+    background-color: seagreen;
+    border: 0;
+    color: white;
+}
+
+mat-form-field {
+    margin-top: -10px;
+    width: 30px;
+    font-size: 10px;
+    z-index: 2200;
+}
+
+mat-option {
+    z-index: 2300;
+}
+

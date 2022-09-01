@@ -1,0 +1,23 @@
+#map {
+  width: 100%;
+  height: 89.7vh;
+  z-index: 0;
+}
+
+#details-panel {
+  text-align: left;
+}
+
+.leaflet-bottom, .leaflet-left {
+  pointer-events: auto;
+}
+
+.leaflet-top, .leaflet-left {
+  margin-left: 50px;
+}
+
+.resultsBox {
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 5px;
+}

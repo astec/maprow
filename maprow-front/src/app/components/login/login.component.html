@@ -1,0 +1,35 @@
+<div class="text-center">
+    <h4 class="text-center"> {{ 'LOGIN.titleLogintextCenter' | translate }}</h4>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
+        <div class="example-container">
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-error
+                        *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
+                        {{ "MAP.matErrorMailAddress" | translate }}
+                    </mat-error>
+                    <mat-error
+                        *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.required">
+                        {{ 'LOGIN.matErrorMailRequired' | translate }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="mt-top-2">
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                    <mat-error *ngIf="!loginForm.get('password')?.errors?.required">
+                        {{ 'LOGIN.matErrorPassword' | translate }}
+                    </mat-error>
+                    <mat-error
+                        *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.required">
+                        {{ 'LOGIN.matErrorPasswordRequired' | translate }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="mt-top">
+                <button [disabled]="!loginForm.valid" mat-raised-button color="primary" mat-button>{{'LOGIN.BtnLogin' | translate}}</button>
+            </div>
+        </div>
+    </form>
+</div>

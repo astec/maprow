@@ -1,0 +1,17 @@
+
+.info-control {
+    background-color: #f76e0c;
+    color: #fff;
+    font-size: 15px;
+    display: inline;
+    min-width: 200px;
+    box-shadow: 0 6px 10px 0 #666;
+  }
+  
+.info-text {
+  background-color: #f76e0c;
+  color: #fff;
+  border-color: #f76e0c;
+  font-size: 15px;
+  text-align: center
+}
