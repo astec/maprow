@@ -28,6 +28,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "@runette/ngx-leaflet-fullscreen": "^1.0.6",
+    "@runette/ngx-leaflet-locate": "^2.0.4",
     "@types/geojson": "^7946.0.10",
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9.1",

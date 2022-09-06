@@ -21,3 +21,12 @@
   opacity: 0.7;
   border-radius: 5px;
 }
+
+app-geocoding {
+  padding: 0;
+  width: 300px;
+}
+
+app-result-list {
+  width: 300px;
+}

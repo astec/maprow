@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgxLeafletLocateModule } from '@runette/ngx-leaflet-locate';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -29,7 +30,6 @@ import { PersonComponent } from './components/person/person.component';
 import { MapSidebarComponent } from './components/map-sidebar/map-sidebar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
 
 import { NominatimService } from './services/nominatim.service';
 import { PersonService } from './services/person.service';
@@ -45,7 +45,6 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
 	declarations: [
 		AppComponent,
 		GeocodingComponent,
-		HomeComponent,
 		LoginComponent,
 		MapComponent,
 		MapPointFormComponent,
@@ -72,7 +71,7 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
 		MatSidenavModule,
 		MatTabsModule,
 		MatToolbarModule,
-
+		NgxLeafletLocateModule,
 		ReactiveFormsModule,
 		TextFieldModule,
 		TranslateModule.forRoot({

@@ -3,15 +3,20 @@
     (leafletClick)="onMapClick($event)" [leafletMarkerCluster]="markerClusterData">
 
     <div class="leaflet-top leaflet-left">
-      <div>
-        <app-geocoding (onSearch)="refreshSearchList($event)"></app-geocoding>
-        <app-result-list class="resultBox" [results]="results" (locationSelected)="getAddress($event)"></app-result-list>
+      <div class="col">
+        <div class="row">
+          <app-geocoding (onSearch)="refreshSearchList($event)"></app-geocoding>
+        </div>
+        <div class="row">
+          <app-result-list class="resultBox" [results]="results" (locationSelected)="getAddress($event)"></app-result-list>
+        </div>
       </div>
-      <!-- [ngClass]="isVisibile === true? 'visible' : 'invisible'" -->
       <div style="display: none">
         <app-geocoding (onSearch)="refreshSearchList($event)"></app-geocoding>
         <app-result-list class="resultBox" [results]="results" (locationSelected)="getAddress($event)"></app-result-list>
       </div>
+      <leaflet-locate-control [map]="map" [options]="locateOptions">
+      </leaflet-locate-control>
     </div>
 
     <div class="leaflet-top leaflet-right">

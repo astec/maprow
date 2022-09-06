@@ -17,7 +17,7 @@
             </div>
             <div class="mt-top-2">
                 <mat-form-field>
-                    <input matInput type="password" placeholder="Password" formControlName="password">
+                    <input matInput type="password" placeholder="Password" formControlName="password" autocomplete="on">
                     <mat-error *ngIf="!loginForm.get('password')?.errors?.required">
                         {{ 'LOGIN.matErrorPassword' | translate }}
                     </mat-error>

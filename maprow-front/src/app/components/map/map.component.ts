@@ -15,6 +15,7 @@ import {
   icon,
   latLng,
   control,
+  Control,
   LeafletMouseEvent,
   Map,
   marker,
@@ -23,117 +24,116 @@ import {
 } from 'leaflet';
 
 @Component({
-  selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css'],
+	selector: 'app-map',
+	templateUrl: './map.component.html',
+	styleUrls: ['./map.component.css'],
 })
 export class MapComponent implements OnInit {
-  @Input() map!: Map;
-  mapPoint!: MapPoint;
-  options!: MapOptions;
-  lastLayer: any;
-  markerClusterGroup!: MarkerClusterGroup;
-  markerClusterData = [];
-  results!: NominatimResponse[];
-  // miniMap!: any;
+	@Input() map!: Map;
+	mapPoint!: MapPoint;
+	options!: MapOptions;
+	lastLayer: any;
+	markerClusterGroup!: MarkerClusterGroup;
+	markerClusterData = [];
+	results!: NominatimResponse[];
+	// miniMap!: any;
 
-  constructor(private stationsService: StationsService) { }
+	public locateOptions: Control.LocateOptions = {
+		flyTo: false,
+		keepCurrentZoomLevel: true,
+		locateOptions: {
+			enableHighAccuracy: true,
+		},
+		icon: 'material-icons md-18 target icon',
+		clickBehavior: { inView: 'stop', outOfView: 'setView', inViewNotFollowing: 'setView' },
+	};
 
+	constructor(private stationsService: StationsService) {}
 
+	ngOnInit() {
+		this.initializeDefaultMapPoint();
+		this.initializeMapOptions();
+	}
 
-  ngOnInit() {
-    this.initializeDefaultMapPoint();
-    this.initializeMapOptions();
-  }
+	initializeMap(map: Map) {
+		this.map = map;
+		this.createMarker();
+		this.initializeLayers();
+		new Watermark({ position: 'topright' }).addTo(this.map);
+		this.stationsService.makeStationsMarkers(this.map);
+		this.markerClusterGroup = new MarkerClusterGroup({ removeOutsideVisibleBounds: true });
+		// this.miniMap = require('leaflet-minimap');
+		// this.miniMap = new Minimap(this.lastLayer, {zoom: 14}).addTo(this.map);
+	}
 
+	getAddress(result: NominatimResponse) {
+		this.updateMapPoint(result.latitude, result.longitude, result.displayName);
+		this.createMarker();
+	}
 
+	refreshSearchList(results: NominatimResponse[]) {
+		this.results = results;
+	}
 
-  initializeMap(map: Map) {
-    this.map = map;
-    this.createMarker();
-    this.initializeLayers();
-    new Watermark({ position: 'topright' }).addTo(this.map);
-    this.stationsService.makeStationsMarkers(this.map);
-    this.markerClusterGroup = new MarkerClusterGroup({ removeOutsideVisibleBounds: true });
-    // this.miniMap = require('leaflet-minimap');
-    // this.miniMap = new Minimap(this.lastLayer, {zoom: 14}).addTo(this.map);
+	onMapClick(e: LeafletMouseEvent) {
+		this.clearMap();
+		// this.updateMapPoint(e.latlng.lat, e.latlng.lng);
+		this.createMarker();
+	}
 
+	initializeLayers() {
+		var baseLayers = {
+			'OpenStreet Map': OSM,
+			'CartoDB Dark': cartoDBDark,
+			CycleOSM: OCM,
+		};
 
+		var overlayMaps = {};
+		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
+	}
 
-  }
+	private initializeMapOptions() {
+		this.options = {
+			zoom: 14,
+      minZoom: 10,
+			layers: [OSM],
+		};
+	}
 
-  getAddress(result: NominatimResponse) {
-    this.updateMapPoint(result.latitude, result.longitude, result.displayName);
-    this.createMarker();
-  }
+	private initializeDefaultMapPoint() {
+		this.mapPoint = {
+			name: 'Welcome in Zielona Góra',
+			latitude: DEFAULT_LATITUDE,
+			longitude: DEFAULT_LONGITUDE,
+		};
+	}
 
-  refreshSearchList(results: NominatimResponse[]) {
-    this.results = results;
-  }
+	private updateMapPoint(latitude: number, longitude: number, name?: string) {
+		this.mapPoint = {
+			latitude: latitude,
+			longitude: longitude,
+			name: name ? name : this.mapPoint.name,
+		};
+	}
 
-  onMapClick(e: LeafletMouseEvent) {
-    this.clearMap();
-    // this.updateMapPoint(e.latlng.lat, e.latlng.lng);
-    this.createMarker();
-  }
+	private createMarker() {
+		const mapIcon = icon({
+			iconUrl: 'assets/images/icons/marker-icon.png',
+		});
+		const coordinates = latLng([this.mapPoint.latitude, this.mapPoint.longitude]);
+		this.map.setView(coordinates, this.map.getZoom());
+		this.lastLayer = marker(coordinates).setIcon(mapIcon).addTo(this.map);
+	}
 
-  initializeLayers() {
-    var baseLayers = {
-      'OpenStreet Map': OSM,
-      'CartoDB Dark': cartoDBDark,
-      'CycleOSM': OCM
-    };
+	private getDefaultIcon() {
+		return icon({
+			iconSize: [40, 40],
+			iconAnchor: [13, 41],
+			iconUrl: 'assets/images/icons/city-bike.png',
+		});
+	}
 
-    var overlayMaps = {};
-    var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
-  }
-
-  private initializeMapOptions() {
-    this.options = {
-      zoom: 14,
-      layers: [OSM],
-    };
-  }
-
-  private initializeDefaultMapPoint() {
-    this.mapPoint = {
-      name: 'Welcome in Zielona Góra',
-      latitude: DEFAULT_LATITUDE,
-      longitude: DEFAULT_LONGITUDE,
-    };
-  }
-
-  private updateMapPoint(latitude: number, longitude: number, name?: string) {
-    this.mapPoint = {
-      latitude: latitude,
-      longitude: longitude,
-      name: name ? name : this.mapPoint.name,
-    };
-  }
-
-  private createMarker() {
-
-    const mapIcon = icon({
-      iconUrl: 'assets/images/icons/marker-icon.png'
-    });
-    const coordinates = latLng([
-      this.mapPoint.latitude,
-      this.mapPoint.longitude,
-    ]);
-    this.map.setView(coordinates, this.map.getZoom());
-    this.lastLayer = marker(coordinates).setIcon(mapIcon).addTo(this.map);
-
-  }
-
-  private getDefaultIcon() {
-    return icon({
-      iconSize: [40, 40],
-      iconAnchor: [13, 41],
-      iconUrl: 'assets/images/icons/city-bike.png'
-    });
-  }
-
-  private clearMap() {
-    if (this.map.hasLayer(this.lastLayer)) this.map.removeLayer(this.lastLayer);
-  }
+	private clearMap() {
+		if (this.map.hasLayer(this.lastLayer)) this.map.removeLayer(this.lastLayer);
+	}
 }
