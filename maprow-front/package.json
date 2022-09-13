@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config src/proxy.conf.json --host 0.0.0.0 --port 4200",
+    "start": "ng serve --proxy-config src/proxy.conf.json --host 0.0.0.0 --poll 500",
     "build": "ng build --configuration development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

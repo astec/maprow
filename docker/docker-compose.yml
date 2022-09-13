@@ -5,9 +5,21 @@ services:
        build: 
            dockerfile: ../docker/frontend/Dockerfile
            context:    ../maprow-front/
+       volumes:
+           - ../maprow-front/:/usr/src/app
+           - ../maprow-front/node_modules:/usr/src/app/node_modules
        ports:
            - "4200:4200"
     geoserver:
         image: geosolutionsit/geoserver:latest
         ports:
            - "8080:8080"
+    postgis:
+        container_name: postgis_db
+        image: postgis/postgis:latest
+        volumes:
+            - ./database/postgis_db.sql:/docker-entrypoint-initdb.d/db.sql
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: root
+            POSTGRES_DB: db_example
