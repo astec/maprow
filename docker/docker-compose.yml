@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+    angular-service:
+       container_name: angular-image-container
+       build: 
+           dockerfile: ../docker/frontend/Dockerfile
+           context:    ../maprow-front/
+       ports:
+           - "4200:4200"
+    geoserver:
+        image: geosolutionsit/geoserver:latest
+        ports:
+           - "8080:8080"
