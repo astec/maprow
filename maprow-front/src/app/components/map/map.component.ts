@@ -10,6 +10,7 @@ import { MapPoint } from '../../shared/map-point.model';
 import { NominatimResponse } from '../../shared/nominatim-response.model';
 import { Watermark } from './watermark';
 import { StationsService } from '../../services/stations.service';
+import * as L from 'leaflet';
 
 import {
   icon,
@@ -87,8 +88,12 @@ export class MapComponent implements OnInit {
 			'CartoDB Dark': cartoDBDark,
 			CycleOSM: OCM,
 		};
-
 		var overlayMaps = {};
+		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/bikecycle_zg/wms", {
+    layers: 'bikecycle_zg:bikecycle',
+    format: 'image/png',
+    transparent: true
+}).addTo(this.map);
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
 	}
 
