@@ -1,0 +1,26 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [51.93826, 15.5053]
+				},
+				"properties": {
+					"name": "Ratusz"
+				}
+			},
+			{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [51.93802, 15.51353]
+				},
+				"properties": {
+					"name": "Palmiarnia Zielonogórska"
+				}
+			}
+		]
+
+}

@@ -1,0 +1,22 @@
+<mat-toolbar>
+    <span></span>
+    <span class="example-spacer"></span>
+
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>person_outline</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+    </button>
+
+    <button mat-icon-button class="example-icon language-icon" aria-label="Example icon-button with language icon">
+        <mat-form-field appearance="fill">
+            <mat-icon>language</mat-icon>
+            <mat-select [(ngModel)]="selectedValue" name="language">
+                <mat-option *ngFor="let language of languages" [value]="language.value">
+                    {{language.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </button>
+</mat-toolbar>

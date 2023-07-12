@@ -1,0 +1,405 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.933368, 15.47696]
+			},
+			"properties": {
+				"name": "Francuska/Dunikowskiego"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.952502, 15.48514]
+			},
+			"properties": {
+				"name": "Zjednoczenia/Dekoracyjna"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.925131, 15.514117]
+			},
+			"properties": {
+				"name": "Nowa/Browarna"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.905833, 15.507264]
+			},
+			"properties": {
+				"name": "Nowojędrzychowska / Makowa"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.943366, 15.509078]
+			},
+			"properties": {
+				"name": "Plac Bohaterów"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.978576, 15.486797]
+			},
+			"properties": {
+				"name": "Odrzańska (Łężyca)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.958425, 15.496729]
+			},
+			"properties": {
+				"name": "Batorego/Zamoyskiego"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.945175, 15.52091]
+			},
+			"properties": {
+				"name": "Wyspiańskiego (pływalnia)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.946735, 15.510964]
+			},
+			"properties": {
+				"name": "Dworcowa (dworzec PKS)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.947139, 15.513638]
+			},
+			"properties": {
+				"name": "Dworcowa (dworzec PKP)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.969102, 15.534448]
+			},
+			"properties": {
+				"name": "Krępowska (Chynów)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.956863, 15.523532]
+			},
+			"properties": {
+				"name": "Sulechowska (CRS)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.935897, 15.506481]
+			},
+			"properties": {
+				"name": "Konstytucji 3 Maja (Wenus)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.936806, 15.503058]
+			},
+			"properties": {
+				"name": "Plac Słowiański"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.953189, 15.498984]
+			},
+			"properties": {
+				"name": "Batorego/Obywatelska"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.933249, 15.498337]
+			},
+			"properties": {
+				"name": "1 Maja (Zielona Strzała)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.929966, 15.492318]
+			},
+			"properties": {
+				"name": "Wyszyńskiego/Wiśniowa"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.928661, 15.487514]
+			},
+			"properties": {
+				"name": "Zawadzkiego/Cyryla i Metodego"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.931494, 15.485354]
+			},
+			"properties": {
+				"name": "Wyszyńskiego/Monte Cassino"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.935456, 15.481439]
+			},
+			"properties": {
+				"name": "Wyszyńskiego/Słowacka"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.93766, 15.488124]
+			},
+			"properties": {
+				"name": "Krośnieńska (Zielona Strzała)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.945975, 15.454651]
+			},
+			"properties": {
+				"name": "Cisowa"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.920544, 15.5002]
+			},
+			"properties": {
+				"name": "Botaniczna (Ogród botaniczny - Mini ZOO)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.943944, 15.477801]
+			},
+			"properties": {
+				"name": "Zacisze/Prosta"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.944455, 15.470365]
+			},
+			"properties": {
+				"name": "Agrestowa"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.939154, 15.474271]
+			},
+			"properties": {
+				"name": "Wojska Polskiego (UZ)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.937964, 15.47705]
+			},
+			"properties": {
+				"name": "Kraljevska"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.939282, 15.4823]
+			},
+			"properties": {
+				"name": "Wojska Polskiego/Wyszyńskiego"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.931691, 15.516136]
+			},
+			"properties": {
+				"name": "Morelowa"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.933619, 15.555892]
+			},
+			"properties": {
+				"name": "Osiedle Śląskie"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.937489, 15.559479]
+			},
+			"properties": {
+				"name": "Osiedle Pomorskie"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.942213, 15.528763]
+			},
+			"properties": {
+				"name": "Szafrana (UZ)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.93941, 15.528694]
+			},
+			"properties": {
+				"name": "Podgórna (UZ)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.939487, 15.524012]
+			},
+			"properties": {
+				"name": "Podgórna/Waryńskiego"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.940114, 15.513041]
+			},
+			"properties": {
+				"name": "Rondo 11 Listopada"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.939505, 15.502008]
+			},
+			"properties": {
+				"name": "Wojska Polskiego/Reja"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.940938, 15.504489]
+			},
+			"properties": {
+				"name": "Kupiecka/Wojska Polskiego"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.955939, 15.514996]
+			},
+			"properties": {
+				"name": "Zdrojowa"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.940303, 15.506537]
+			},
+			"properties": {
+				"name": "Kupiecka (Bachus)"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [51.937946, 15.504805]
+			},
+			"properties": {
+				"name": "Stary Rynek/Jana Sobieskiego"
+			}
+		}
+	]
+}
