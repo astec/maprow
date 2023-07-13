@@ -89,8 +89,9 @@ export class MapComponent implements OnInit {
 			CycleOSM: OCM,
 		};
 		var overlayMaps = {};
-		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/bikecycle_zg/wms", {
-    layers: 'bikecycle_zg:bikecycle',
+
+		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/temp/wms", {
+    layers: 'temp:temp',
     format: 'image/png',
     transparent: true
 }).addTo(this.map);
@@ -100,7 +101,7 @@ export class MapComponent implements OnInit {
 	private initializeMapOptions() {
 		this.options = {
 			zoom: 14,
-      minZoom: 10,
+      minZoom: 3,
 			layers: [OSM],
 		};
 	}

@@ -10,4 +10,4 @@ COPY . /usr/src/app
 RUN npm run build
 
 #START
-CMD npm start
+CMD ["npm", "start"]
