@@ -11,6 +11,8 @@ import { NominatimResponse } from '../../shared/nominatim-response.model';
 import { Watermark } from './watermark';
 import { StationsService } from '../../services/stations.service';
 import * as L from 'leaflet';
+import * as geojson from 'geojson';
+import { HttpClient } from '@angular/common/http';
 
 import {
   icon,
@@ -23,6 +25,7 @@ import {
   MapOptions,
   MarkerClusterGroup,
 } from 'leaflet';
+import { geoJSON } from 'src/assets/lib/leaflet-1-8-0/leaflet-src';
 
 @Component({
 	selector: 'app-map',
@@ -49,25 +52,34 @@ export class MapComponent implements OnInit {
 		clickBehavior: { inView: 'stop', outOfView: 'setView', inViewNotFollowing: 'setView' },
 	};
 
-	constructor(private stationsService: StationsService) {}
+	constructor(private stationsService: StationsService, private http: HttpClient) {}
 
 	ngOnInit() {
 		this.initializeDefaultMapPoint();
 		this.initializeMapOptions();
 	}
+	
 
 	initializeMap(map: Map) {
+		
 		this.map = map;
 		this.createMarker();
 		this.initializeLayers();
 		new Watermark({ position: 'topright' }).addTo(this.map);
 		this.stationsService.makeStationsMarkers(this.map);
 		this.markerClusterGroup = new MarkerClusterGroup({ removeOutsideVisibleBounds: true });
+		var geo  = 'assets/data/routes.geojson';
+		this.http.get(geo).subscribe((res: any) => {
+			var data = res;
+			L.geoJSON(data).addTo(map);
+		});
+			
 		// this.miniMap = require('leaflet-minimap');
 		// this.miniMap = new Minimap(this.lastLayer, {zoom: 14}).addTo(this.map);
 	}
 
 	getAddress(result: NominatimResponse) {
+		this.clearMap();
 		this.updateMapPoint(result.latitude, result.longitude, result.displayName);
 		this.createMarker();
 	}
@@ -78,7 +90,7 @@ export class MapComponent implements OnInit {
 
 	onMapClick(e: LeafletMouseEvent) {
 		this.clearMap();
-		// this.updateMapPoint(e.latlng.lat, e.latlng.lng);
+		this.updateMapPoint(e.latlng.lat, e.latlng.lng);
 		this.createMarker();
 	}
 
@@ -89,12 +101,13 @@ export class MapComponent implements OnInit {
 			CycleOSM: OCM,
 		};
 		var overlayMaps = {};
-
+		/*
 		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/temp/wms", {
     layers: 'temp:temp',
     format: 'image/png',
     transparent: true
-}).addTo(this.map);
+}).addTo(this.map); */
+
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
 	}
 
@@ -142,4 +155,5 @@ export class MapComponent implements OnInit {
 	private clearMap() {
 		if (this.map.hasLayer(this.lastLayer)) this.map.removeLayer(this.lastLayer);
 	}
+	
 }
