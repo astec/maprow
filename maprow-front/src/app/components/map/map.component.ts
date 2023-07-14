@@ -71,8 +71,13 @@ export class MapComponent implements OnInit {
 		var geo  = 'assets/data/routes.geojson';
 		this.http.get(geo).subscribe((res: any) => {
 			var data = res;
-			L.geoJSON(data).addTo(map);
+			L.geoJSON(data, {
+				onEachFeature: function (feature, layer) {
+					layer.bindPopup(feature.properties.name);
+				}
+			 }).addTo(map);
 		});
+
 			
 		// this.miniMap = require('leaflet-minimap');
 		// this.miniMap = new Minimap(this.lastLayer, {zoom: 14}).addTo(this.map);
@@ -155,5 +160,5 @@ export class MapComponent implements OnInit {
 	private clearMap() {
 		if (this.map.hasLayer(this.lastLayer)) this.map.removeLayer(this.lastLayer);
 	}
-	
+
 }

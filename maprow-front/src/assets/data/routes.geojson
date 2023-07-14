@@ -6,7 +6,8 @@
 			"properties": {
 				"stroke": "#fe8d0b",
 				"stroke-width": 8,
-				"stroke-opacity": 0.7
+				"stroke-opacity": 0.7,
+				"name": "test"
 			},
 			"geometry": {
 				"type": "LineString",
@@ -24,7 +25,8 @@
 			"properties": {
 				"stroke": "#fe8d0b",
 				"stroke-width": 8,
-				"stroke-opacity": 0.7
+				"stroke-opacity": 0.7,
+				"name": "test2"
 			},
 			"geometry": {
 				"type": "LineString",
