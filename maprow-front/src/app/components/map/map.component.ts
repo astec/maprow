@@ -10,8 +10,8 @@ import { MapPoint } from '../../shared/map-point.model';
 import { NominatimResponse } from '../../shared/nominatim-response.model';
 import { Watermark } from './watermark';
 import { StationsService } from '../../services/stations.service';
+import { BRouteService } from '../../services/bike_routes.service';
 import * as L from 'leaflet';
-import * as geojson from 'geojson';
 import { HttpClient } from '@angular/common/http';
 
 import {
@@ -52,7 +52,7 @@ export class MapComponent implements OnInit {
 		clickBehavior: { inView: 'stop', outOfView: 'setView', inViewNotFollowing: 'setView' },
 	};
 
-	constructor(private stationsService: StationsService, private http: HttpClient) {}
+	constructor(private stationsService: StationsService, private bikerouteService: BRouteService) {}
 
 	ngOnInit() {
 		this.initializeDefaultMapPoint();
@@ -68,24 +68,15 @@ export class MapComponent implements OnInit {
 		new Watermark({ position: 'topright' }).addTo(this.map);
 		this.stationsService.makeStationsMarkers(this.map);
 		this.markerClusterGroup = new MarkerClusterGroup({ removeOutsideVisibleBounds: true });
-		var geo  = 'assets/data/routes.geojson';
-		this.http.get(geo).subscribe((res: any) => {
-			var data = res;
-			L.geoJSON(data, {
-				onEachFeature: function (feature, layer) {
-					layer.bindPopup(feature.properties.name);
-				}
-			 }).addTo(map);
-		});
-
-			
+		this.bikerouteService.makeBikeRoutes(this.map);
+	     
 		// this.miniMap = require('leaflet-minimap');
 		// this.miniMap = new Minimap(this.lastLayer, {zoom: 14}).addTo(this.map);
 	}
 
 	getAddress(result: NominatimResponse) {
 		this.clearMap();
-		this.updateMapPoint(result.latitude, result.longitude, result.displayName);
+		//this.updateMapPoint(result.latitude, result.longitude, result.displayName);
 		this.createMarker();
 	}
 
@@ -95,8 +86,8 @@ export class MapComponent implements OnInit {
 
 	onMapClick(e: LeafletMouseEvent) {
 		this.clearMap();
-		this.updateMapPoint(e.latlng.lat, e.latlng.lng);
-		this.createMarker();
+		//this.updateMapPoint(e.latlng.lat, e.latlng.lng);
+		//this.createMarker();
 	}
 
 	initializeLayers() {
