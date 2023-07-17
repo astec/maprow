@@ -196,3 +196,18 @@ Change directory to *maprow-front*
 
 - Run `ng serve` to build and run the application.
 - Open your web browser and connect to http://localhost:4200. You should see two records from database and website with map, legend, navigation bar and highlighted states of USA.
+
+
+# How to add / replace routes on the map
+
+## Generate geojson
+- Go to http://geojson.io webpage. Draw routes using "Draw LineString (I)" option.
+
+## Replace routes on the map
+- Save the data as routes.geojson and place it at maprow\maprow-front\src\assets\data\routes.geojson.
+
+## Or: add to currently existing routes
+- Copy content of "features" tag in result json and paste it into maprow\maprow-front\src\assets\data\routes.geojson.
+
+# Adding a popup to bike route
+Bike_routes.service.ts file contains makeBikeRoutes function. It's responsible for adding a route to the map by calling addTo function, but also adds a popup with road's name (feature.properties.name) to the map in onEachFeature segment.
