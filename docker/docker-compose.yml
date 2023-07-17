@@ -1,33 +1,51 @@
 version: "3.7"
 services:
-    angular-service:
-       container_name: angular-image-container
-       build: 
-           dockerfile: ../docker/frontend/Dockerfile
-           context:    ../maprow-front/
-       volumes:
-           - ../maprow-front/:/usr/src/app
-           - ../maprow-front/node_modules:/usr/src/app/node_modules
-       ports:
-           - "4200:4200"
-    geoserver:
-        image: geosolutionsit/geoserver:2.22.4
-        ports:
-           - "8080:8080"
+  angular-service:
+    container_name: angular-image-container
+    build:
+      dockerfile: ../docker/frontend/Dockerfile
+      context: ../maprow-front/
+    volumes:
+      - ../maprow-front/:/usr/src/app
+      - ../maprow-front/node_modules:/usr/src/app/node_modules
+    ports:
+      - "4200:4200"
+  geoserver:
+      image: geosolutionsit/geoserver:2.22.4
+      ports:
+        - "8080:8080"
 
-    postgis:
-        container_name: postgis_db
-        image: postgis/postgis:15-3.3
-        volumes:
-            - ./database/postgis_db.sql:/docker-entrypoint-initdb.d/db.sql
-        environment:
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: root
-            POSTGRES_DB: db
-        expose:
-          - "5432"
-        ports:
-          - "5432:5432"
-        command: -p 5432
+  postgres:
+    container_name: postgres_container
+    image: postgis/postgis:15-3.3
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: db
+    volumes:
+      - ./database/postgis_db.sql:/docker-entrypoint-initdb.d/db.sql
+    ports:
+      - '5432:5432'
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: root
+    volumes:
+      - ./volumes/pgadmin:/var/lib/pgadmin
+    ports:
+      - '49152:80'
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
 
 
