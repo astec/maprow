@@ -7,7 +7,7 @@ import * as L from 'leaflet';
   providedIn: 'root',
 })
 export class BRouteService {
-  geo: string  = 'assets/data/routes.geojson';
+  geo: string  = 'assets/data/special_routes/jedrzychow-campus-A.geojson';
 
   constructor(private http: HttpClient) {}
 
