@@ -16,8 +16,7 @@ export class BRouteService {
         L.geoJSON(res, {
             onEachFeature: function (feature, layer) {
                 var popupMessage = feature.properties.name + "<br>" +
-                 "Długość w km:" + feature.properties.length_in_km + "<br>" +
-                  feature.properties.image;
+                 "Długość w km:" + feature.properties.length_in_km + "<br>";
                 layer.bindPopup(popupMessage);
             },
          }).addTo(map);
