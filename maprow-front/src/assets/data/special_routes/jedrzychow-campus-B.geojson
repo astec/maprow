@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Makowa"
+        "name": "Makowa",
+        "length_in_km": 0.38
       },
       "geometry": {
         "coordinates": [
@@ -46,12 +47,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 0
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Nowojędrzychowska"
+        "name": "Nowojędrzychowska",
+        "length_in_km": 0.03
       },
       "geometry": {
         "coordinates": [
@@ -65,12 +68,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 1
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Jędrzychowska"
+        "name": "Jędrzychowska",
+        "length_in_km": 1.11
       },
       "geometry": {
         "coordinates": [
@@ -176,12 +181,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 2
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Kożuchowska"
+        "name": "Kożuchowska",
+        "length_in_km": 1.53
       },
       "geometry": {
         "coordinates": [
@@ -271,12 +278,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 3
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Generała Władysława Sikorskiego"
+        "name": "Generała Władysława Sikorskiego",
+        "length_in_km": 0.66
       },
       "geometry": {
         "coordinates": [
@@ -334,12 +343,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 4
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Aleja Konstytucji 3 Maja"
+        "name": "Aleja Konstytucji 3 Maja",
+        "length_in_km": 0.45
       },
       "geometry": {
         "coordinates": [
@@ -401,12 +412,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 5
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Długa"
+        "name": "Długa",
+        "length_in_km": 0.33
       },
       "geometry": {
         "coordinates": [
@@ -456,12 +469,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 6
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Dąbrówki"
+        "name": "Dąbrówki",
+        "length_in_km": 0.41
       },
       "geometry": {
         "coordinates": [
@@ -527,12 +542,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 7
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Rondo PCK"
+        "name": "Rondo PCK",
+        "length_in_km": 0.11
       },
       "geometry": {
         "coordinates": [
@@ -578,12 +595,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 8
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Wojska Polskiego"
+        "name": "Wojska Polskiego",
+        "length_in_km": "1.30"
       },
       "geometry": {
         "coordinates": [
@@ -701,7 +720,8 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 9
     }
   ]
 }

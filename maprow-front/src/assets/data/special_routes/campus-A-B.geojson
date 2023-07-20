@@ -4,7 +4,8 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Profesora Zygmunta Szafrana"
+        "name": "Profesora Zygmunta Szafrana",
+        "length_in_km": 0.39
       },
       "geometry": {
         "coordinates": [
@@ -42,12 +43,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 0
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Podgórna"
+        "name": "Podgórna",
+        "length_in_km": 1.21
       },
       "geometry": {
         "coordinates": [
@@ -157,12 +160,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 1
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Wrocławska"
+        "name": "Wrocławska",
+        "length_in_km": 0.19
       },
       "geometry": {
         "coordinates": [
@@ -196,12 +201,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 2
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Aleja Konstytucji 3 Maja"
+        "name": "Aleja Konstytucji 3 Maja",
+        "length_in_km": "0.80"
       },
       "geometry": {
         "coordinates": [
@@ -271,12 +278,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 3
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Długa"
+        "name": "Długa",
+        "length_in_km": 0.33
       },
       "geometry": {
         "coordinates": [
@@ -322,12 +331,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 4
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Dąbrówki"
+        "name": "Dąbrówki",
+        "length_in_km": 0.41
       },
       "geometry": {
         "coordinates": [
@@ -377,12 +388,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 5
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Rondo PCK"
+        "name": "Rondo PCK",
+        "length_in_km": 0.11
       },
       "geometry": {
         "coordinates": [
@@ -428,12 +441,14 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 6
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Wojska Polskiego"
+        "name": "Wojska Polskiego",
+        "length_in_km": "1.30"
       },
       "geometry": {
         "coordinates": [
@@ -499,7 +514,8 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 7
     }
   ]
 }

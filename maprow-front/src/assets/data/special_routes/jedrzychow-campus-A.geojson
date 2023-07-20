@@ -4,7 +4,11 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Makowa"
+        "name": "Makowa",
+        "length_in_km": 0.38,
+        "stroke": "#ff0000",
+        "stroke-width": 2,
+        "stroke-opacity": 1
       },
       "geometry": {
         "coordinates": [
@@ -46,12 +50,17 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 0
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Nowojędrzychowska"
+        "name": "Nowojędrzychowska",
+        "length_in_km": 0.03,
+        "stroke": "#ff0000",
+        "stroke-width": 2,
+        "stroke-opacity": 1
       },
       "geometry": {
         "coordinates": [
@@ -65,12 +74,17 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 1
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Jędrzychowska"
+        "name": "Jędrzychowska",
+        "length_in_km": 1.11,
+        "stroke": "#ff0000",
+        "stroke-width": 2,
+        "stroke-opacity": 1
       },
       "geometry": {
         "coordinates": [
@@ -176,12 +190,17 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 2
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Kożuchowska"
+        "name": "Kożuchowska",
+        "length_in_km": 1.53,
+        "stroke": "#ff0000",
+        "stroke-width": 2,
+        "stroke-opacity": 1
       },
       "geometry": {
         "coordinates": [
@@ -271,12 +290,17 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 3
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Generała Władysława Sikorskiego"
+        "name": "Generała Władysława Sikorskiego",
+        "length_in_km": 0.66,
+        "stroke": "#ff0000",
+        "stroke-width": 2,
+        "stroke-opacity": 1
       },
       "geometry": {
         "coordinates": [
@@ -334,12 +358,17 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 4
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Aleja Konstytucji 3 Maja"
+        "name": "Aleja Konstytucji 3 Maja",
+        "length_in_km": 0.36,
+        "stroke": "#ff0000",
+        "stroke-width": 2,
+        "stroke-opacity": 1
       },
       "geometry": {
         "coordinates": [
@@ -389,12 +418,17 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 5
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Wrocławska"
+        "name": "Wrocławska",
+        "length_in_km": "0.20",
+        "stroke": "#ff0000",
+        "stroke-width": 2,
+        "stroke-opacity": 1
       },
       "geometry": {
         "coordinates": [
@@ -452,12 +486,17 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 6
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Podgórna"
+        "name": "Podgórna",
+        "length_in_km": 0.24,
+        "stroke": "#ff0000",
+        "stroke-width": 2,
+        "stroke-opacity": 1
       },
       "geometry": {
         "coordinates": [
@@ -499,12 +538,17 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 7
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Rondo 11 Listopada"
+        "name": "Rondo 11 Listopada",
+        "length_in_km": 0.02,
+        "stroke": "#ff0000",
+        "stroke-width": 2,
+        "stroke-opacity": 1
       },
       "geometry": {
         "coordinates": [
@@ -522,12 +566,17 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 8
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Podgórna"
+        "name": "Podgórna",
+        "length_in_km": 0.94,
+        "stroke": "#ff0000",
+        "stroke-width": 2,
+        "stroke-opacity": 1
       },
       "geometry": {
         "coordinates": [
@@ -625,12 +674,17 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 9
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Profesora Zygmunta Szafrana"
+        "name": "Profesora Zygmunta Szafrana",
+        "length_in_km": 0.39,
+        "stroke": "#ff0000",
+        "stroke-width": 2,
+        "stroke-opacity": 1
       },
       "geometry": {
         "coordinates": [
@@ -676,7 +730,8 @@
           ]
         ],
         "type": "LineString"
-      }
+      },
+      "id": 10
     }
   ]
 }
