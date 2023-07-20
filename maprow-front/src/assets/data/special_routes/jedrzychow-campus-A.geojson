@@ -5,10 +5,7 @@
       "type": "Feature",
       "properties": {
         "name": "Makowa",
-        "length_in_km": 0.38,
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1
+        "length_in_km": 0.38
       },
       "geometry": {
         "coordinates": [
@@ -57,10 +54,7 @@
       "type": "Feature",
       "properties": {
         "name": "Nowojędrzychowska",
-        "length_in_km": 0.03,
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1
+        "length_in_km": 0.03
       },
       "geometry": {
         "coordinates": [
@@ -81,10 +75,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jędrzychowska",
-        "length_in_km": 1.11,
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1
+        "length_in_km": 1.11
       },
       "geometry": {
         "coordinates": [
@@ -197,10 +188,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kożuchowska",
-        "length_in_km": 1.53,
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1
+        "length_in_km": 1.53
       },
       "geometry": {
         "coordinates": [
@@ -297,10 +285,7 @@
       "type": "Feature",
       "properties": {
         "name": "Generała Władysława Sikorskiego",
-        "length_in_km": 0.66,
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1
+        "length_in_km": 0.66
       },
       "geometry": {
         "coordinates": [
@@ -365,10 +350,7 @@
       "type": "Feature",
       "properties": {
         "name": "Aleja Konstytucji 3 Maja",
-        "length_in_km": 0.36,
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1
+        "length_in_km": 0.36
       },
       "geometry": {
         "coordinates": [
@@ -425,10 +407,7 @@
       "type": "Feature",
       "properties": {
         "name": "Wrocławska",
-        "length_in_km": "0.20",
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1
+        "length_in_km": "0.20"
       },
       "geometry": {
         "coordinates": [
@@ -493,10 +472,7 @@
       "type": "Feature",
       "properties": {
         "name": "Podgórna",
-        "length_in_km": 0.24,
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1
+        "length_in_km": 0.24
       },
       "geometry": {
         "coordinates": [
@@ -545,10 +521,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rondo 11 Listopada",
-        "length_in_km": 0.02,
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1
+        "length_in_km": 0.02
       },
       "geometry": {
         "coordinates": [
@@ -573,10 +546,7 @@
       "type": "Feature",
       "properties": {
         "name": "Podgórna",
-        "length_in_km": 0.94,
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1
+        "length_in_km": 0.94
       },
       "geometry": {
         "coordinates": [
@@ -681,10 +651,7 @@
       "type": "Feature",
       "properties": {
         "name": "Profesora Zygmunta Szafrana",
-        "length_in_km": 0.39,
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1
+        "length_in_km": 0.39
       },
       "geometry": {
         "coordinates": [

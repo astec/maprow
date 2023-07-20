@@ -15,11 +15,10 @@ export class BRouteService {
     this.http.get(this.geo).subscribe((res: any) => {
         L.geoJSON(res, {
             onEachFeature: function (feature, layer) {
-                var popupMessage = feature.properties.name + "<br>" + "Długość w km:" + feature.properties.length_in_km + "<br>" + feature.properties.stroke;
+                var popupMessage = feature.properties.name + "<br>" +
+                 "Długość w km:" + feature.properties.length_in_km + "<br>" +
+                  feature.properties.image;
                 layer.bindPopup(popupMessage);
-            },
-            style: function(feature){
-                return {"color":"#999999"};
             },
          }).addTo(map);
     });
