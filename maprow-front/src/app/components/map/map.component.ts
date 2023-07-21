@@ -13,6 +13,7 @@ import { StationsService } from '../../services/stations.service';
 import { BRouteService } from '../../services/bike_routes.service';
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
+import * as $ from 'jquery';
 
 import {
   icon,
@@ -31,6 +32,8 @@ import { geoJSON } from 'src/assets/lib/leaflet-1-8-0/leaflet-src';
 	selector: 'app-map',
 	templateUrl: './map.component.html',
 	styleUrls: ['./map.component.css'],
+	//jquery: ['./jquery.js'],
+	//index: ['./index.html'],
 })
 export class MapComponent implements OnInit {
 	@Input() map!: Map;
@@ -58,10 +61,10 @@ export class MapComponent implements OnInit {
 		this.initializeDefaultMapPoint();
 		this.initializeMapOptions();
 	}
-	
+
 
 	initializeMap(map: Map) {
-		
+
 		this.map = map;
 		this.createMarker();
 		this.initializeLayers();
@@ -69,7 +72,7 @@ export class MapComponent implements OnInit {
 		this.stationsService.makeStationsMarkers(this.map);
 		this.markerClusterGroup = new MarkerClusterGroup({ removeOutsideVisibleBounds: true });
 		this.bikerouteService.makeBikeRoutes(this.map);
-	     
+
 		// this.miniMap = require('leaflet-minimap');
 		// this.miniMap = new Minimap(this.lastLayer, {zoom: 14}).addTo(this.map);
 	}
@@ -90,6 +93,8 @@ export class MapComponent implements OnInit {
 		//this.createMarker();
 	}
 
+
+
 	initializeLayers() {
 		var baseLayers = {
 			'OpenStreet Map': OSM,
@@ -97,12 +102,21 @@ export class MapComponent implements OnInit {
 			CycleOSM: OCM,
 		};
 		var overlayMaps = {};
-		/*
-		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/temp/wms", {
-    layers: 'temp:temp',
+
+		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/trasa/wms?service=WMS", {
+    layers: 'trasa:FILE',
     format: 'image/png',
     transparent: true
-}).addTo(this.map); */
+
+
+}).addTo(this.map);
+
+
+/*
+$.getJSON(wfs_url).then((res) => {
+var layer = L.geoJSON(res).addTo(map);
+});
+*/
 
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
 	}
