@@ -7,6 +7,8 @@ services:
       context: ../maprow-front/
     ports:
       - "4200:4200"
+    networks:
+      - postgres
   geoserver:
     image: geosolutionsit/geoserver:2.22.4
     ports:
