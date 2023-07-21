@@ -112,11 +112,23 @@ export class MapComponent implements OnInit {
 }).addTo(this.map);
 
 
-/*
-$.getJSON(wfs_url).then((res) => {
-var layer = L.geoJSON(res).addTo(map);
-});
-*/
+$.ajax(
+    'http://localhost:8080/geoserver/workspace_trasa/ows?',
+    {
+    type: 'GET',
+    data: {
+            service: 'WFS',
+            request: 'GetFeature',
+            typename: 'trasa:FILE',
+            srsname: 'EPSG:4326',
+            outputFormat: 'text/javascript'
+    },
+
+    dataType: 'jsonp',
+    jsonpCallback: 'callback:handleJson',
+    jsonp: 'format_options',
+
+    });
 
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
 	}
