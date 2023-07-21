@@ -1,25 +1,45 @@
 version: "3.7"
 services:
-    angular-service:
-       container_name: angular-image-container
-       build: 
-           dockerfile: ../docker/frontend/Dockerfile
-           context:    ../maprow-front/
-       volumes:
-           - ../maprow-front/:/usr/src/app
-           - ../maprow-front/node_modules:/usr/src/app/node_modules
-       ports:
-           - "4200:4200"
-    geoserver:
-        image: geosolutionsit/geoserver:latest
-        ports:
-           - "8080:8080"
-    postgis:
-        container_name: postgis_db
-        image: postgis/postgis:latest
-        volumes:
-            - ./database/postgis_db.sql:/docker-entrypoint-initdb.d/db.sql
-        environment:
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: root
-            POSTGRES_DB: db_example
+  angular-service:
+    container_name: angular-image-container
+    build:
+      dockerfile: ../docker/frontend/Dockerfile
+      context: ../maprow-front/
+    ports:
+      - "4200:4200"
+  geoserver:
+    image: geosolutionsit/geoserver:2.22.4
+    ports:
+      - "8080:8080"
+    networks:
+      - postgres
+  postgres:
+    container_name: postgres_container
+    image: postgis/postgis:15-3.3
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: db
+    volumes:
+      - ./database/postgis_db.sql:/docker-entrypoint-initdb.d/db.sql
+    ports:
+      - '5432:5432'
+    networks:
+      - postgres
+    restart: unless-stopped
+  pgadmin:
+    image: dpage/pgadmin4:7.4
+    depends_on:
+      - postgres
+    ports:
+      - "5555:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: root
+    restart: unless-stopped
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge
