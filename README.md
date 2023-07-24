@@ -235,4 +235,35 @@ Change directory to *maprow-front*
 * **Maintenance database** by default: `db` 
 * **Password** by default `root`
 
+# Adding WMS to GeoServer
+- Create new workspace: `Trace`
+- Adding `Shapefile - ESRI(tm) Shapefiles (*.shp)` in the Stores tab
+- Connection Parameters:
+  >**NOTE**: Files with the SHP and SHX extensions must be in ShapeFiles:
+  >
+  > location: datadir/ data/ shapefiles/
+	- Make a publication
+- Coordinate Reference Systems: 
+- Declared SRS: `EPSG:4326`
+- Bounding Boxes:
+	- Compute from data
+	- Compute from native bounds
 
+
+# GeoServer connection to PostGIS
+- Create new workspace: `PostgressSQL`
+- Adding `PostGIS Database` in the Stores tab
+- Connection Parameters:
+   - host: postgres
+   - port: 5432
+   - database: db
+   - user: postgres
+   - password: root
+  
+
+- Publish: Bikecycle and Person
+- Coordinate Reference Systems: 
+- Declared SRS: `EPSG:4326`
+- Bounding Boxes:
+	- Compute from data
+    - Compute from native bounds

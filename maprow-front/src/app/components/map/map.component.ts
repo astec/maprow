@@ -11,6 +11,7 @@ import { NominatimResponse } from '../../shared/nominatim-response.model';
 import { Watermark } from './watermark';
 import { StationsService } from '../../services/stations.service';
 import * as L from 'leaflet';
+import * as $ from 'jquery';
 
 import {
   icon,
@@ -89,11 +90,33 @@ export class MapComponent implements OnInit {
 			CycleOSM: OCM,
 		};
 		var overlayMaps = {};
-		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/bikecycle_zg/wms", {
-    layers: 'bikecycle_zg:bikecycle',
-    format: 'image/png',
-    transparent: true
+
+		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/TRASA/wms?service=WMS", {
+            layers: 'TRASA:FILE',
+            format: 'image/png',
+            transparent: true
+
 }).addTo(this.map);
+
+$.ajax(
+    'http://localhost:8080/geoserver/TRASA:FILE/ows?',
+    {
+    type: 'GET',
+    data: {
+            service: 'WFS',
+            request: 'GetFeature',
+            typename: 'TRASA:FILE',
+            srsname: 'EPSG:4326',
+            outputFormat: 'text/javascript'
+    },
+
+    dataType: 'jsonp',
+    jsonpCallback: 'callback:handleJson',
+    jsonp: 'format_options',
+
+    });
+
+
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
 	}
 
