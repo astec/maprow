@@ -98,6 +98,24 @@ export class MapComponent implements OnInit {
 
 }).addTo(this.map);
 
+$.ajax(
+    'http://localhost:8080/geoserver/TRASA:FILE/ows?',
+    {
+    type: 'GET',
+    data: {
+            service: 'WFS',
+            request: 'GetFeature',
+            typename: 'TRASA:FILE',
+            srsname: 'EPSG:4326',
+            outputFormat: 'text/javascript'
+    },
+
+    dataType: 'jsonp',
+    jsonpCallback: 'callback:handleJson',
+    jsonp: 'format_options',
+
+    });
+
 
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
 	}
