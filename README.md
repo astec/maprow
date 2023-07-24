@@ -196,3 +196,43 @@ Change directory to *maprow-front*
 
 - Run `ng serve` to build and run the application.
 - Open your web browser and connect to http://localhost:4200. You should see two records from database and website with map, legend, navigation bar and highlighted states of USA.
+
+# Dockerize
+## Requirements:
+* docker desktop (>= 4.21.1) or intellij plugin
+
+## Docker desktop
+* To ensure proper functioning of Docker Desktop, you need to update the Linux subsystem using the command `wsl --update` in command prompt.
+
+## Start
+* Start docker-compose.yml from intellij docker plugin or:
+* Go inside of directory,  `cd ./docker`
+* Run `docker-compose build` command, afterwards run `docker-compose up -d`
+
+## Environments
+* This Docker-compose file contains the following environment variables:
+
+### Access to Angular map: 
+* http://localhost:4200/
+
+### Access to Geoserver: 
+* http://localhost:8080/geoserver
+* **Login:** admin
+* **Password:** geoserver
+
+### Postgres:
+* It is located on port **5432**.
+
+### Access to PgAdmin:
+* **URL** to Postgres via PgAdmin: http://localhost:5555/
+* **Email/Username:** pgadmin@pgadmin.org
+* **Password:** root
+
+### Add a new server in PgAdmin:
+* **Host name/Address** `postgres`
+* **Port** `5432`
+* **Username** by default: `postgres`
+* **Maintenance database** by default: `db` 
+* **Password** by default `root`
+
+
