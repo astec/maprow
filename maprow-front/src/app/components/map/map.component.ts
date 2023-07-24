@@ -4,13 +4,15 @@ import {
   DEFAULT_LONGITUDE,
   OSM,
   cartoDBDark,
-  OCM
+  OCM,
+  geojsonMarkerOptions
 } from '../../app.constants';
 import { MapPoint } from '../../shared/map-point.model';
 import { NominatimResponse } from '../../shared/nominatim-response.model';
 import { Watermark } from './watermark';
 import { StationsService } from '../../services/stations.service';
 import * as L from 'leaflet';
+import { HttpClient } from '@angular/common/http';
 
 import {
   icon,
@@ -49,7 +51,7 @@ export class MapComponent implements OnInit {
 		clickBehavior: { inView: 'stop', outOfView: 'setView', inViewNotFollowing: 'setView' },
 	};
 
-	constructor(private stationsService: StationsService) {}
+	constructor(private stationsService: StationsService, private http: HttpClient) {}
 
 	ngOnInit() {
 		this.initializeDefaultMapPoint();
@@ -83,18 +85,37 @@ export class MapComponent implements OnInit {
 	}
 
 	initializeLayers() {
+		//POI feature
+		var poi = L.featureGroup();
+		this.http.get('assets/data/map_POI.geojson').subscribe((res: any) => {
+			L.geoJSON(res, {
+				onEachFeature: function (feature, layer) {
+					layer.bindPopup(feature.properties.name);
+				},
+				pointToLayer: function(feature, latlng){
+					return L.circleMarker(latlng, geojsonMarkerOptions);
+				}
+			}).addTo(poi);
+		});
+		
+		//basic layers
 		var baseLayers = {
 			'OpenStreet Map': OSM,
 			'CartoDB Dark': cartoDBDark,
 			CycleOSM: OCM,
 		};
-		var overlayMaps = {};
+
+		//custom layers
+		var overlayMaps = {
+			'poi': poi,
+		};
 		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/bikecycle_zg/wms", {
     layers: 'bikecycle_zg:bikecycle',
     format: 'image/png',
     transparent: true
 }).addTo(this.map);
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
+		
 	}
 
 	private initializeMapOptions() {

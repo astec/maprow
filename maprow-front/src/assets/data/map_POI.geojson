@@ -1,0 +1,504 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Szpital Uniwersytecki w Zielonej Górze"
+        },
+        "geometry": {
+          "coordinates": [
+            15.520790599053612,
+            51.94080440066443
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Wojewódzki Szpital Kliniczny"
+        },
+        "geometry": {
+          "coordinates": [
+            15.518560852046107,
+            51.94161844003651
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Szpital MSWiA"
+        },
+        "geometry": {
+          "coordinates": [
+            15.520694766592527,
+            51.94211888260301
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Focus Mall",
+          "marker-color": "#7e7e7e",
+          "marker-size": "medium",
+          "marker-symbol": "circle",
+          "popupContent": "Focus Mall"
+        },
+        "geometry": {
+          "coordinates": [
+            15.511327409855568,
+            51.93580779479262
+          ],
+          "type": "Point"
+        },
+        "id": 3
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Zielonogórska Palmiarnia"
+        },
+        "geometry": {
+          "coordinates": [
+            15.513585785716657,
+            51.93806592312856
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Park Winny"
+        },
+        "geometry": {
+          "coordinates": [
+            15.512487603674742,
+            51.93810505652425
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Palmiarnia"
+        },
+        "geometry": {
+          "coordinates": [
+            15.510229870486967,
+            51.93836081876074
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Centrum Nauki Keplera - Planetarium Wenus"
+        },
+        "geometry": {
+          "coordinates": [
+            15.506385221251549,
+            51.936058111123714
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Ratusz"
+        },
+        "geometry": {
+          "coordinates": [
+            15.505274478826323,
+            51.93830336018303
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Wieża Głodowa"
+        },
+        "geometry": {
+          "coordinates": [
+            15.506246030985182,
+            51.937752753013456
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Muzeum Ziemi Lubuskiej w Zielonej Górze"
+        },
+        "geometry": {
+          "coordinates": [
+            15.508782335359655,
+            51.94180773844187
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Ogród Botaniczny Uniwersytetu Zielonogórskiego"
+        },
+        "geometry": {
+          "coordinates": [
+            15.498383719198387,
+            51.921273264013905
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Stadion Żużlowy"
+        },
+        "geometry": {
+          "coordinates": [
+            15.529582144489666,
+            51.92905145251609
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Galeria Zielonogórskiego żużla"
+        },
+        "geometry": {
+          "coordinates": [
+            15.528519370687576,
+            51.92967231458738
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Platforma Widokowa"
+        },
+        "geometry": {
+          "coordinates": [
+            15.513187451376979,
+            51.9383540332274
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Scena Lalkowa Lubuskiego Teatru"
+        },
+        "geometry": {
+          "coordinates": [
+            15.507919710081012,
+            51.940444425644074
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Plac Teatralny"
+        },
+        "geometry": {
+          "coordinates": [
+            15.508556527462588,
+            51.94035851398914
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Konkatedra św. Jadwigi"
+        },
+        "geometry": {
+          "coordinates": [
+            15.507160897962024,
+            51.938984336363575
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Filharmonia Zielonogórska"
+        },
+        "geometry": {
+          "coordinates": [
+            15.504450548970425,
+            51.93987753178675
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Park Świętej Trójcy"
+        },
+        "geometry": {
+          "coordinates": [
+            15.492195348146993,
+            51.93895740340395
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Łużyckie Tarasy"
+        },
+        "geometry": {
+          "coordinates": [
+            15.482916185067666,
+            51.935194600951974
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Bajkowa Zagroda"
+        },
+        "geometry": {
+          "coordinates": [
+            15.495672514153824,
+            51.92202012157162
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Wiata Turystyczna"
+        },
+        "geometry": {
+          "coordinates": [
+            15.490227234840944,
+            51.922403698657064
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Zielonogórskie Alpe de Huez"
+        },
+        "geometry": {
+          "coordinates": [
+            15.489403904623146,
+            51.92327375873572
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Amfiteatr"
+        },
+        "geometry": {
+          "coordinates": [
+            15.490323684949914,
+            51.92541403131986
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Zielonogórski Ośrodek Kultury"
+        },
+        "geometry": {
+          "coordinates": [
+            15.491058281359386,
+            51.92554492406927
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Galeria Grafitt"
+        },
+        "geometry": {
+          "coordinates": [
+            15.507683831568272,
+            51.94259088867801
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Stadion MOSiR"
+        },
+        "geometry": {
+          "coordinates": [
+            15.5235712384669,
+            51.954676234479024
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Piwnica Winiarska"
+        },
+        "geometry": {
+          "coordinates": [
+            15.518184467764996,
+            51.92793697977129
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Amfiteatr"
+        },
+        "geometry": {
+          "coordinates": [
+            15.50411164886853,
+            51.939633330575134
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Dolina Gęśnika"
+        },
+        "geometry": {
+          "coordinates": [
+            15.513884025459816,
+            51.952353015975774
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Plac Bohaterów"
+        },
+        "geometry": {
+          "coordinates": [
+            15.509457566498128,
+            51.942593776082475
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Papugarnia RIO"
+        },
+        "geometry": {
+          "coordinates": [
+            15.509283573348483,
+            51.90639104608056
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Park Tysiąclecia"
+        },
+        "geometry": {
+          "coordinates": [
+            15.517212487329545,
+            51.94241488442242
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Winiarka"
+        },
+        "geometry": {
+          "coordinates": [
+            15.503442282879007,
+            51.937676536400176
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Pomnik 100-lecia Odzyskania Niepodległości przez Polski"
+        },
+        "geometry": {
+          "coordinates": [
+            15.509418228238815,
+            51.93981524681692
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Lubuski Teatr w Zielonej Górze"
+        },
+        "geometry": {
+          "coordinates": [
+            15.507263284866013,
+            51.94027156630764
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Centrum Przyrodnicze"
+        },
+        "geometry": {
+          "coordinates": [
+            15.500680643672638,
+            51.94389025143798
+          ],
+          "type": "Point"
+        }
+      }
+    ]
+  }
