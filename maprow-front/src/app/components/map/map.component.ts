@@ -10,6 +10,7 @@ import { MapPoint } from '../../shared/map-point.model';
 import { NominatimResponse } from '../../shared/nominatim-response.model';
 import { Watermark } from './watermark';
 import { StationsService } from '../../services/stations.service';
+import { RouteService } from 'src/app/services/route.service';
 import * as L from 'leaflet';
 import * as $ from 'jquery';
 
@@ -50,7 +51,7 @@ export class MapComponent implements OnInit {
 		clickBehavior: { inView: 'stop', outOfView: 'setView', inViewNotFollowing: 'setView' },
 	};
 
-	constructor(private stationsService: StationsService) {}
+	constructor(private stationsService: StationsService, private route: RouteService) {}
 
 	ngOnInit() {
 		this.initializeDefaultMapPoint();
@@ -84,41 +85,21 @@ export class MapComponent implements OnInit {
 	}
 
 	initializeLayers() {
+		var bikeMap = this.route.makeLayer('maprow:bike_map');
+		
 		var baseLayers = {
 			'OpenStreet Map': OSM,
 			'CartoDB Dark': cartoDBDark,
 			CycleOSM: OCM,
 		};
-		var overlayMaps = {};
-
-		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/TRASA/wms?service=WMS", {
-            layers: 'TRASA:FILE',
-            format: 'image/png',
-            transparent: true
-
-}).addTo(this.map);
-
-$.ajax(
-    'http://localhost:8080/geoserver/TRASA:FILE/ows?',
-    {
-    type: 'GET',
-    data: {
-            service: 'WFS',
-            request: 'GetFeature',
-            typename: 'TRASA:FILE',
-            srsname: 'EPSG:4326',
-            outputFormat: 'text/javascript'
-    },
-
-    dataType: 'jsonp',
-    jsonpCallback: 'callback:handleJson',
-    jsonp: 'format_options',
-
-    });
-
+		var overlayMaps = {
+		'Bike Map': bikeMap
+		};
+		
 
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
 	}
+
 
 	private initializeMapOptions() {
 		this.options = {
