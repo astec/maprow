@@ -30,6 +30,20 @@
             <div class="mt-top">
                 <button [disabled]="!loginForm.valid" mat-raised-button color="primary" mat-button>{{'LOGIN.BtnLogin' | translate}}</button>
             </div>
+            <div class="content" role="main">
+                <div class="card-container">
+                    <div class="container mt-5">
+                        <div class="row mt-5">
+                            <div class="col-md-4 mt-2 m-1 ">
+                                <button type="button" class="login-with-google-btn" #loginRef>
+                                    Sign in with Google
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <router-outlet></router-outlet>
     </form>
 </div>
