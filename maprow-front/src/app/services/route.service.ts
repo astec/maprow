@@ -36,6 +36,8 @@ import * as $ from 'jquery';
                 }
             }).addTo(layer);
         }
+        layer.on("mouseover",function(e){layer.setStyle({color:"white"})});
+        layer.on("mouseout",function(e){layer.setStyle({color:"black"})});
 
         //Connection to geoserver via jquery
         $.ajax({
