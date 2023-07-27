@@ -13,6 +13,7 @@ import { Watermark } from './watermark';
 import { StationsService } from '../../services/stations.service';
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
+import { POIService } from 'src/app/services/poi.service';
 
 import {
   icon,
@@ -51,7 +52,7 @@ export class MapComponent implements OnInit {
 		clickBehavior: { inView: 'stop', outOfView: 'setView', inViewNotFollowing: 'setView' },
 	};
 
-	constructor(private stationsService: StationsService, private http: HttpClient) {}
+	constructor(private stationsService: StationsService, private http: HttpClient, private poiService: POIService) {}
 
 	ngOnInit() {
 		this.initializeDefaultMapPoint();
@@ -86,17 +87,7 @@ export class MapComponent implements OnInit {
 
 	initializeLayers() {
 		//POI feature
-		var poi = L.featureGroup();
-		this.http.get('assets/data/map_POI.geojson').subscribe((res: any) => {
-			L.geoJSON(res, {
-				onEachFeature: function (feature, layer) {
-					layer.bindPopup(feature.properties.name);
-				},
-				pointToLayer: function(feature, latlng){
-					return L.circleMarker(latlng, geojsonMarkerOptions);
-				}
-			}).addTo(poi);
-		});
+		var poi = this.poiService.makeLayer('maprow:POI')
 		
 		//basic layers
 		var baseLayers = {
@@ -109,11 +100,7 @@ export class MapComponent implements OnInit {
 		var overlayMaps = {
 			'poi': poi,
 		};
-		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/bikecycle_zg/wms", {
-    layers: 'bikecycle_zg:bikecycle',
-    format: 'image/png',
-    transparent: true
-}).addTo(this.map);
+		
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
 		
 	}
