@@ -10,7 +10,9 @@ import { MapPoint } from '../../shared/map-point.model';
 import { NominatimResponse } from '../../shared/nominatim-response.model';
 import { Watermark } from './watermark';
 import { StationsService } from '../../services/stations.service';
+import { RouteService } from 'src/app/services/route.service';
 import * as L from 'leaflet';
+import * as $ from 'jquery';
 
 import {
   icon,
@@ -49,7 +51,7 @@ export class MapComponent implements OnInit {
 		clickBehavior: { inView: 'stop', outOfView: 'setView', inViewNotFollowing: 'setView' },
 	};
 
-	constructor(private stationsService: StationsService) {}
+	constructor(private stationsService: StationsService, private route: RouteService) {}
 
 	ngOnInit() {
 		this.initializeDefaultMapPoint();
@@ -83,19 +85,21 @@ export class MapComponent implements OnInit {
 	}
 
 	initializeLayers() {
+		var route1 = this.route.makeCustomLayer('maprow:campus-A-B');
+
 		var baseLayers = {
 			'OpenStreet Map': OSM,
 			'CartoDB Dark': cartoDBDark,
 			CycleOSM: OCM,
 		};
-		var overlayMaps = {};
-		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/bikecycle_zg/wms", {
-    layers: 'bikecycle_zg:bikecycle',
-    format: 'image/png',
-    transparent: true
-}).addTo(this.map);
+		var overlayMaps = {
+		'Route 1': route1
+		};
+
+
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
 	}
+
 
 	private initializeMapOptions() {
 		this.options = {
