@@ -54,6 +54,10 @@ Download **IntelliJ IDEA** from https://www.jetbrains.com/idea/download/#section
 `npm install -g @angular/cli`
 	- Once all packages have been added, verify the installed version: `ng version`
 
+### QGis:
+- Go to download.qgis.org/downloads.
+- Download and launch QGIS-OSGeo4W-3.32.0-1.msi.
+
 ## Linux
 
 ### Java:
@@ -235,23 +239,14 @@ Change directory to *maprow-front*
 * **Maintenance database** by default: `db` 
 * **Password** by default `root`
 
-# Adding WMS to GeoServer
-- Create new workspace: `Trace`
-- Adding `Shapefile - ESRI(tm) Shapefiles (*.shp)` in the Stores tab
-- Connection Parameters:
-  >**NOTE**: Files with the SHP and SHX extensions must be in ShapeFiles:
-  >
-  > location: datadir/ data/ shapefiles/
-	- Make a publication
-- Coordinate Reference Systems: 
-- Declared SRS: `EPSG:4326`
-- Bounding Boxes:
-	- Compute from data
-	- Compute from native bounds
+
+# How to make GeoServer workspace
+- Go to localhost:8080/geoserver
+- Workspaces -> Add new workspace;
+- As both name and Namespace URI input "maprow" and press Save.
 
 
 # GeoServer connection to PostGIS
-- Create new workspace: `PostgressSQL`
 - Adding `PostGIS Database` in the Stores tab
 - Connection Parameters:
    - host: postgres
@@ -261,9 +256,38 @@ Change directory to *maprow-front*
    - password: root
   
 
-- Publish: Bikecycle and Person
+- Publish: Bikecycle
 - Coordinate Reference Systems: 
 - Declared SRS: `EPSG:4326`
 - Bounding Boxes:
 	- Compute from data
     - Compute from native bounds
+
+
+# Upload KML/GeoJson to database
+- Open QGIS and right click on PostgreSQL on the panel on the left side. Select "New Connection...";
+	- Name: postgres
+	- Host: localhost
+	- Port: 5432
+	- Database: db
+- After pressing OK input database credentials:
+	- User name: postgres
+	- Password: root
+- Go to Layer -> Add Layer -> Add Vector Layer...;
+- As source select KML / GeoJson file with drawn routes or points and press "Add";
+- Go to Database -> DB Manager;
+- Select PostGIS -> postgres -> public and press "Import Layer/File...";
+- Choose a layer you want to add and press "OK'.
+
+## Publish layer with routes on GeoServer
+- Go to localhost:8080/geoserver
+- Log in as admin;
+- Go to Data -> Layers -> Add a new layer;
+- From drop-down menu select "maprow:db";
+- Publish layer, that was added through QGIS;
+- Coordinate Reference Systems:
+    - Make sure, that "EPSG:4326" is selected
+- Bounding Boxes:
+    - Compute from data
+    - Compute from native bounds
+- Press Apply.
