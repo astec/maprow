@@ -87,6 +87,7 @@ export class MapComponent implements OnInit {
 	initializeLayers() {
 	    var bikeMap = this.route.makeLayer('maprow:bike_map');
     	var poi = this.poiService.makeLayer('maprow:POI');
+    	var route1 = this.route.makeCustomLayer('maprow:campus-A-B');
 
     	//Basic layers
 		var baseLayers = {
@@ -98,7 +99,8 @@ export class MapComponent implements OnInit {
 		//custom layers
 		var overlayMaps = {
 		'Bike Map': bikeMap,
-        'poi': poi
+        'poi': poi,
+        'Route 1': route1
         };
 
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
