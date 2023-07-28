@@ -235,13 +235,4 @@ Change directory to *maprow-front*
 * **Maintenance database** by default: `db` 
 * **Password** by default `root`
 
-# How to add / replace POIs on the map
-
-## Generate geojson file
-* Go to http://geojson.io webpage. Place points on the map with additional property "name" which stands for POI and export them as .geojson. 
-
-## Replace or add file
-* Save the data as map_POI.geojson and place it at maprow\maprow-front\src\assets\data\map_POI.geojson.
-
-
 

@@ -4,15 +4,14 @@ import {
   DEFAULT_LONGITUDE,
   OSM,
   cartoDBDark,
-  OCM,
-  geojsonMarkerOptions
+  OCM
 } from '../../app.constants';
 import { MapPoint } from '../../shared/map-point.model';
 import { NominatimResponse } from '../../shared/nominatim-response.model';
 import { Watermark } from './watermark';
 import { StationsService } from '../../services/stations.service';
+import { RouteService } from 'src/app/services/route.service';
 import * as L from 'leaflet';
-import { HttpClient } from '@angular/common/http';
 import { POIService } from 'src/app/services/poi.service';
 
 import {
@@ -52,7 +51,7 @@ export class MapComponent implements OnInit {
 		clickBehavior: { inView: 'stop', outOfView: 'setView', inViewNotFollowing: 'setView' },
 	};
 
-	constructor(private stationsService: StationsService, private http: HttpClient, private poiService: POIService) {}
+	constructor(private stationsService: StationsService, private route: RouteService, private poiService: POIService) {}
 
 	ngOnInit() {
 		this.initializeDefaultMapPoint();
@@ -86,10 +85,10 @@ export class MapComponent implements OnInit {
 	}
 
 	initializeLayers() {
-		//POI feature
-		var poi = this.poiService.makeLayer('maprow:POI')
-		
-		//basic layers
+	    var bikeMap = this.route.makeLayer('maprow:bike_map');
+    	var poi = this.poiService.makeLayer('maprow:POI');
+
+    	//Basic layers
 		var baseLayers = {
 			'OpenStreet Map': OSM,
 			'CartoDB Dark': cartoDBDark,
@@ -98,11 +97,11 @@ export class MapComponent implements OnInit {
 
 		//custom layers
 		var overlayMaps = {
-			'poi': poi,
-		};
-		
+		'Bike Map': bikeMap,
+        'poi': poi
+        };
+
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
-		
 	}
 
 	private initializeMapOptions() {
