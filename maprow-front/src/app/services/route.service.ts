@@ -8,7 +8,6 @@ import * as $ from 'jquery';
     providedIn: 'root',
   })
   export class RouteService {
-export class RouteService {
 
     constructor() {}
 
@@ -96,5 +95,4 @@ export class RouteService {
 
             return layer;
         }
-    }
 }

@@ -29,7 +29,7 @@ import { geojsonMarkerOptions } from '../app.constants';
         function getData(response: any){
             L.geoJSON(response, {
 				onEachFeature: function (feature, layer) {
-					layer.bindPopup(feature.properties.name);
+					layer.bindPopup("<center>" + feature.properties.name + "<\center><br>" + feature.properties.picture);
 				},
 				pointToLayer: function(feature, latlng){
 					return L.circleMarker(latlng, geojsonMarkerOptions);

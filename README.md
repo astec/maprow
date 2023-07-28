@@ -240,10 +240,6 @@ Change directory to *maprow-front*
 * **Password** by default `root`
 
 
-# Create KML/GeoJson
-- Go to geojson.io and draw desired route / put desired POIs on the map;
-- Click "Save" and select desired file format.
-
 # How to make GeoServer workspace
 - Go to localhost:8080/geoserver
 - Workspaces -> Add new workspace;
@@ -259,13 +255,10 @@ Change directory to *maprow-front*
 	- user: postgres
 	- password: root
 
-
-- Publish: Bikecycle
-- Coordinate Reference Systems:
-- Declared SRS: `EPSG:4326`
-- Bounding Boxes:
-	- Compute from data
-	- Compute from native bounds
+	
+# Create KML/GeoJson
+- Go to geojson.io and draw desired route / put desired POIs on the map;
+- Click "Save" and select desired file format.
 
 
 # Upload KML/GeoJson to database
