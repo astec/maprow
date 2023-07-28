@@ -236,3 +236,6 @@ Change directory to *maprow-front*
 * **Password** by default `root`
 
 
+# Create KML/GeoJson
+- Go to geojson.io and draw desired route / put desired POIs on the map;
+- Click "Save" and select desired file format.
