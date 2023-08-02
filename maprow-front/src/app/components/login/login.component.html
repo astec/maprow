@@ -28,7 +28,10 @@
                 </mat-form-field>
             </div>
             <div class="mt-top">
-                <button [disabled]="!loginForm.valid" mat-raised-button color="primary" mat-button>{{'LOGIN.BtnLogin' | translate}}</button>
+                <button [disabled]="!loginForm.valid" mat-raised-button color="primary" mat-button (click)="onSubmit()">{{'LOGIN.BtnLogin' | translate}}</button>
+            </div>
+            <div class="mt-top">
+                <a routerLink="/register" mat-stroked-button color="primary" mat-button>Zarejestruj się</a>
             </div>
             <div class="content" role="main">
                 <div class="card-container">
@@ -47,6 +50,5 @@
                 </div>
             </div>
         </div>
-        <router-outlet></router-outlet>
     </form>
 </div>

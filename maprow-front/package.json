@@ -45,6 +45,7 @@
     "leaflet-minimap": "^3.6.1",
     "leaflet-routing-machine": "^3.2.12",
     "leaflet.markercluster": "^1.5.3",
+    "ngx-webstorage": "^12.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

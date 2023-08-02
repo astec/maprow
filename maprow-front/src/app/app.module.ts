@@ -30,6 +30,8 @@ import { PersonComponent } from './components/person/person.component';
 import { MapSidebarComponent } from './components/map-sidebar/map-sidebar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { NominatimService } from './services/nominatim.service';
 import { PersonService } from './services/person.service';
@@ -74,6 +76,7 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
 		NgxLeafletLocateModule,
 		ReactiveFormsModule,
 		TextFieldModule,
+		NgxWebstorageModule.forRoot(),
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,
