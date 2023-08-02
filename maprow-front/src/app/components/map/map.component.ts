@@ -11,8 +11,6 @@ import { NominatimResponse } from '../../shared/nominatim-response.model';
 import { Watermark } from './watermark';
 import { StationsService } from '../../services/stations.service';
 import { RouteService } from 'src/app/services/route.service';
-import * as L from 'leaflet';
-import { POIService } from 'src/app/services/poi.service';
 
 import {
   icon,
@@ -39,7 +37,6 @@ export class MapComponent implements OnInit {
 	markerClusterGroup!: MarkerClusterGroup;
 	markerClusterData = [];
 	results!: NominatimResponse[];
-	// miniMap!: any;
 
 	public locateOptions: Control.LocateOptions = {
 		flyTo: false,
@@ -51,7 +48,7 @@ export class MapComponent implements OnInit {
 		clickBehavior: { inView: 'stop', outOfView: 'setView', inViewNotFollowing: 'setView' },
 	};
 
-	constructor(private stationsService: StationsService, private route: RouteService, private poiService: POIService) {}
+	constructor(private stationsService: StationsService, private routeService: RouteService) {}
 
 	ngOnInit() {
 		this.initializeDefaultMapPoint();
@@ -65,8 +62,6 @@ export class MapComponent implements OnInit {
 		new Watermark({ position: 'topright' }).addTo(this.map);
 		this.stationsService.makeStationsMarkers(this.map);
 		this.markerClusterGroup = new MarkerClusterGroup({ removeOutsideVisibleBounds: true });
-		// this.miniMap = require('leaflet-minimap');
-		// this.miniMap = new Minimap(this.lastLayer, {zoom: 14}).addTo(this.map);
 	}
 
 	getAddress(result: NominatimResponse) {
@@ -80,30 +75,28 @@ export class MapComponent implements OnInit {
 
 	onMapClick(e: LeafletMouseEvent) {
 		this.clearMap();
-		// this.updateMapPoint(e.latlng.lat, e.latlng.lng);
+		this.updateMapPoint(e.latlng.lat, e.latlng.lng);
 		this.createMarker();
 	}
 
 	initializeLayers() {
-	    var bikeMap = this.route.makeLayer('maprow:bike_map');
-    	var poi = this.poiService.makeLayer('maprow:POI');
-    	var route1 = this.route.makeCustomLayer('maprow:campus-A-B');
+	    let bikeMap = this.routeService.makeLayer('maprow','bike_map');
+        let poi = this.routeService.makeLayer('maprow','POI');
+        let route1 = this.routeService.makeLayer('maprow','campus-A-B');
 
-    	//Basic layers
-		var baseLayers = {
+		let baseLayers = {
 			'OpenStreet Map': OSM,
 			'CartoDB Dark': cartoDBDark,
 			CycleOSM: OCM,
 		};
-
-		//custom layers
-		var overlayMaps = {
-		'Bike Map': bikeMap,
-        'poi': poi,
-        'Route 1': route1
+		
+		let overlayMaps = {
+			'Bike Map': bikeMap,
+       		'poi': poi,
+        	'Route 1': route1
         };
 
-		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
+		control.layers(baseLayers, overlayMaps).addTo(this.map);
 	}
 
 	private initializeMapOptions() {

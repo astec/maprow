@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as L from 'leaflet';
 import * as $ from 'jquery';
+import { environment } from 'src/environments/environment';
+import { geojsonMarkerOptions } from '../app.constants';
 
 
 
@@ -11,88 +13,57 @@ import * as $ from 'jquery';
 
     constructor() {}
 
-    makeLayer(typName: string){
-        //Creating URL
-        var defaultParameters = {
+    makeLayer(workspace: string, geoLayer: string){
+        let defaultParameters = {
             service : "WFS",
             version : "1.0.0",
             request : "GetFeature",
-            typeName : typName,  //workspace:layer from geoserver
+            typeName : workspace + ":" + geoLayer, 
             outputFormat : "application/json"
         };
-        var parameters = L.Util.extend(defaultParameters);
-        var urlRoot = 'http://localhost:8080/geoserver/maprow/ows'; // /geoserver/workspace/ows
-        var URL = urlRoot + L.Util.getParamString(parameters);
-        var layer = L.featureGroup();
+        let parameters = L.Util.extend(defaultParameters);
+        let urlRoot = environment.geoServerUrl + "/" + workspace + "/ows";
+        let URL = urlRoot + L.Util.getParamString(parameters);
+        let layer = L.featureGroup();
+        let featureType = "";
 
-        //Function which converts jquery response to geojson layer
+        function style(feature:any){
+            if(feature.properties.featureType){
+                if(feature.properties.featureType.toLowerCase().includes("special route")) {return {color:"yellow"}; }
+                else {return {color:"#03cffc"};}
+            }
+            else {return {color:"#03cffc"};} 
+        }
+​
         function getData(response: any){
             L.geoJSON(response, {
                 onEachFeature: function (feature, layer) {
-                    layer.bindPopup(feature.properties.name);
-                }
+                    let popupContent = "<center>";
+                    if(feature.properties.name) popupContent += feature.properties.name += "<br>";
+                    if(feature.properties.length_in_km) popupContent += feature.properties.length_in_km + "<br>";
+                    if(feature.properties.picture) popupContent += feature.properties.picture + "<br>";
+                    if(feature.properties.featureType) {featureType = feature.properties.featureType}
+                    popupContent += "</center>";
+                    layer.bindPopup(popupContent);
+                },
+                pointToLayer: function(feature, latlng){
+                    return L.circleMarker(latlng, geojsonMarkerOptions);
+                },
+                style:style,
             }).addTo(layer);
+            if(featureType.toLowerCase().includes("special route")){
+                layer.on("mouseover",function(e){layer.setStyle({color:"red"})});
+                layer.on("mouseout",function(e){layer.setStyle({color:"yellow"})});
+            }
         }
 
-        //Connection to geoserver via jquery
         $.ajax({
             url : URL,
             dataType : 'json',
             jsonpCallback : 'getJson',
             success : getData,
-            error : function(){
-                console.log('error');
-            },
-            complete: function(response){
-                console.log('complete')
-            }
         });
 
         return layer;
     }
-
-    makeCustomLayer(typName: string){
-            //Creating URL
-            var defaultParameters = {
-                service : "WFS",
-                version : "1.0.0",
-                request : "GetFeature",
-                typeName : typName,  //workspace:layer from geoserver
-                outputFormat : "application/json"
-            };
-            var parameters = L.Util.extend(defaultParameters);
-            var urlRoot = 'http://localhost:8080/geoserver/maprow/ows'; // /geoserver/workspace/ows
-            var URL = urlRoot + L.Util.getParamString(parameters);
-            var layer = L.featureGroup();
-
-            //Function which converts jquery response to geojson layer
-            function getData(response: any){
-                L.geoJSON(response, {
-                    onEachFeature: function (feature, layer) {
-                        layer.bindPopup(feature.properties.name);
-                    },
-                    style:{
-                        'color': '#000000'
-                    }
-                }).addTo(layer);
-            }
-            layer.on("mouseover",function(e){layer.setStyle({color:"white"})});
-            layer.on("mouseout",function(e){layer.setStyle({color:"black"})});
-
-            //Connection to geoserver via jquery
-            $.ajax({
-                url : URL,
-                dataType : 'json',
-                jsonpCallback : 'getJson',
-                success : getData,
-                error : function(){
-                    console.log('error');
-                },
-                complete: function(response){
-                    console.log('complete')
-                }
-            });
-
-            return layer;
-        }
 }
