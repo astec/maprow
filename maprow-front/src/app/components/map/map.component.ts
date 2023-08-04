@@ -10,7 +10,7 @@ import { MapPoint } from '../../shared/map-point.model';
 import { NominatimResponse } from '../../shared/nominatim-response.model';
 import { Watermark } from './watermark';
 import { StationsService } from '../../services/stations.service';
-import * as L from 'leaflet';
+import { RouteService } from 'src/app/services/route.service';
 
 import {
   icon,
@@ -37,7 +37,6 @@ export class MapComponent implements OnInit {
 	markerClusterGroup!: MarkerClusterGroup;
 	markerClusterData = [];
 	results!: NominatimResponse[];
-	// miniMap!: any;
 
 	public locateOptions: Control.LocateOptions = {
 		flyTo: false,
@@ -49,7 +48,7 @@ export class MapComponent implements OnInit {
 		clickBehavior: { inView: 'stop', outOfView: 'setView', inViewNotFollowing: 'setView' },
 	};
 
-	constructor(private stationsService: StationsService) {}
+	constructor(private stationsService: StationsService, private routeService: RouteService) {}
 
 	ngOnInit() {
 		this.initializeDefaultMapPoint();
@@ -63,8 +62,6 @@ export class MapComponent implements OnInit {
 		new Watermark({ position: 'topright' }).addTo(this.map);
 		this.stationsService.makeStationsMarkers(this.map);
 		this.markerClusterGroup = new MarkerClusterGroup({ removeOutsideVisibleBounds: true });
-		// this.miniMap = require('leaflet-minimap');
-		// this.miniMap = new Minimap(this.lastLayer, {zoom: 14}).addTo(this.map);
 	}
 
 	getAddress(result: NominatimResponse) {
@@ -78,23 +75,36 @@ export class MapComponent implements OnInit {
 
 	onMapClick(e: LeafletMouseEvent) {
 		this.clearMap();
-		// this.updateMapPoint(e.latlng.lat, e.latlng.lng);
+		this.updateMapPoint(e.latlng.lat, e.latlng.lng);
 		this.createMarker();
 	}
 
 	initializeLayers() {
-		var baseLayers = {
+	    let bikeMap = this.routeService.makeLayer('maprow','bike_map');
+        let poi = this.routeService.makeLayer('maprow','POI');
+        let campusesRoute = this.routeService.makeLayer('maprow','campus-A-B');
+        let lesneCampusARoute = this.routeService.makeLayer('maprow','cisowa-campus-A');
+        let jedrzychowCampusARoute = this.routeService.makeLayer('maprow','jedrzychow-campus-A');
+        let jedrzychowCampusBRoute = this.routeService.makeLayer('maprow','jedrzychow-campus-B');
+        let sulechowskaKrosnienskaRoute = this.routeService.makeLayer('maprow','sulechowska-krosnieniska');
+
+		let baseLayers = {
 			'OpenStreet Map': OSM,
 			'CartoDB Dark': cartoDBDark,
 			CycleOSM: OCM,
 		};
-		var overlayMaps = {};
-		var bikecycle_zg = L.tileLayer.wms("http://localhost:8080/geoserver/bikecycle_zg/wms", {
-    layers: 'bikecycle_zg:bikecycle',
-    format: 'image/png',
-    transparent: true
-}).addTo(this.map);
-		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
+		
+		let overlayMaps = {
+			'Bike Map': bikeMap,
+       		'poi': poi,
+			'Cisowa - Campus A': campusesRoute,
+			'Os. Leśne - Campus A': lesneCampusARoute,
+			'Jędrzychów - Campus A': jedrzychowCampusARoute,
+			'Jędrzychów - Campus B': jedrzychowCampusBRoute,
+			'Sulechowska - Krośnieńska': sulechowskaKrosnienskaRoute
+        };
+
+		control.layers(baseLayers, overlayMaps).addTo(this.map);
 	}
 
 	private initializeMapOptions() {

@@ -42,3 +42,19 @@ export const cartoDBDark = L.tileLayer(cartoDBDarkUrl, {
   attribution: '<a href="https://carto.com/attributions">CARTO</a>'
 });
 
+export const geojsonMarkerOptions = {
+    radius: 8,
+    fillColor: "#ff7800",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+};
+
+export const wfsDefaultParameters = {
+  service : "WFS",
+  version : "1.0.0",
+  request : "GetFeature",
+  typeName: "",
+  outputFormat : "application/json"
+};

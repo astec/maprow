@@ -1,30 +1,29 @@
 {
-	"GEOCODING": {
-		"inputSearchPlaceHolder": "search..."
-	},
-	"LOGIN": {
-		"titleLogintextCenter": "Log in to your account",
-		"matErrorMailAddress": "Please enter correct e-mail address",
-		"matErrorMailRequired": "e-mail address required",
-		"matErrorPassword": "Password must be eight or more characters long and must contain at least one uppercase, lowercase, number and special character",
-		"matErrorPasswordRequired": "password required",
-		"BtnLogin": "Log in"
-	},
-
-	"MAPSIDEBAR": {
-		"labelPerson": "Your Account",
-		"labelTourism": "Tourism",
-		"labelTourismTitle": "Tourist Guide",
-		"labelTourismInstruction": "Here we can write any text, insert buttons, etc.",
-		"labelTourismContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam a incidunt quaerat ullam obcaecati facilis cum modi repudiandae recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos deserunt ut, iusto nostrum fuga porro consectetur officiis consequuntur repellat commodi vero in quibusdam dolorum reiciendis hic quia corporis quae quis.",
-		"labelTourismGalleryInfo": "Information about places",
-		"labelLegend": "Legend",
-		"labelLegendTitle": "Legend",
-		"labelLegendListOne": "City roads",
-		"labelLegendListTwo": "Paved roads",
-		"labelLegendListThree": "Unpaved roads",
-		"labelLegendListFour": "Bike trails",
-		"labelLegendListFive": "City bike stations",
-		"labelLegendListSix": "Boundaries"
-	}
+  "GEOCODING": {
+    "inputSearchPlaceHolder": "search..."
+  },
+  "LOGIN": {
+    "titleLogintextCenter": "Log in to your account",
+    "matErrorMailAddress": "Please enter correct e-mail address",
+    "matErrorMailRequired": "e-mail address required",
+    "matErrorPassword": "Password must be eight or more characters long and must contain at least one uppercase, lowercase, number and special character",
+    "matErrorPasswordRequired": "password required",
+    "BtnLogin": "Log in"
+  },
+  "MAPSIDEBAR": {
+    "labelPerson": "Your Account",
+    "labelTourism": "Tourism",
+    "labelTourismTitle": "Tourist Guide",
+    "labelTourismInstruction": "Here we can write any text, insert buttons, etc.",
+    "labelTourismContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam a incidunt quaerat ullam obcaecati facilis cum modi repudiandae recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos deserunt ut, iusto nostrum fuga porro consectetur officiis consequuntur repellat commodi vero in quibusdam dolorum reiciendis hic quia corporis quae quis.",
+    "labelTourismGalleryInfo": "Information about places",
+    "labelLegend": "Legend",
+    "labelLegendTitle": "Legend",
+    "labelLegendListOne": "City roads",
+    "labelLegendListTwo": "Paved roads",
+    "labelLegendListThree": "Unpaved roads",
+    "labelLegendListFour": "Bike trails",
+    "labelLegendListFive": "City bike stations",
+    "labelLegendListSix": "Boundaries"
+  }
 }
