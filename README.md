@@ -191,6 +191,8 @@ Change directory to *maprow-front*
 ### Install dependencies
 
 - Run `npm i` to download required node modules.
+- Run `npm install @types/leaflet-routing-machine` to install needed modules to Angular.
+
 
 ### Run the application
 

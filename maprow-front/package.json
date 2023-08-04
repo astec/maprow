@@ -30,6 +30,7 @@
     "@runette/ngx-leaflet-fullscreen": "^1.0.6",
     "@runette/ngx-leaflet-locate": "^2.0.4",
     "@types/geojson": "^7946.0.10",
+    "@types/leaflet-routing-machine": "^3.2.4",
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9.1",
     "core-js": "^3.24.0",
