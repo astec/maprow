@@ -82,7 +82,11 @@ export class MapComponent implements OnInit {
 	initializeLayers() {
 	    let bikeMap = this.routeService.makeLayer('maprow','bike_map');
         let poi = this.routeService.makeLayer('maprow','POI');
-        let route1 = this.routeService.makeLayer('maprow','campus-A-B');
+        let campusesRoute = this.routeService.makeLayer('maprow','campus-A-B');
+        let lesneCampusARoute = this.routeService.makeLayer('maprow','cisowa-campus-A');
+        let jedrzychowCampusARoute = this.routeService.makeLayer('maprow','jedrzychow-campus-A');
+        let jedrzychowCampusBRoute = this.routeService.makeLayer('maprow','jedrzychow-campus-B');
+        let sulechowskaKrosnienskaRoute = this.routeService.makeLayer('maprow','sulechowska-krosnieniska');
 
 		let baseLayers = {
 			'OpenStreet Map': OSM,
@@ -93,7 +97,11 @@ export class MapComponent implements OnInit {
 		let overlayMaps = {
 			'Bike Map': bikeMap,
        		'poi': poi,
-        	'Route 1': route1
+			'Cisowa - Campus A': campusesRoute,
+			'Os. Leśne - Campus A': lesneCampusARoute,
+			'Jędrzychów - Campus A': jedrzychowCampusARoute,
+			'Jędrzychów - Campus B': jedrzychowCampusBRoute,
+			'Sulechowska - Krośnieńska': sulechowskaKrosnienskaRoute
         };
 
 		control.layers(baseLayers, overlayMaps).addTo(this.map);

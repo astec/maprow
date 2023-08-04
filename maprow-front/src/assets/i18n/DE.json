@@ -1,30 +1,29 @@
 {
-	"GEOCODING": {
-		"inputSearchPlaceHolder": "Suche ..."
-	},
-	"LOGIN": {
-		"titleLogintextCenter": "Ins Konto einloggen",
-		"matErrorMailAddress": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-		"matErrorMailRequired": "E-Mail-Adresse erforderlich",
-		"matErrorPassword": "Das Passwort muss acht oder mehr Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten",
-		"matErrorPasswordRequired": "Passwort erforderlich",
-		"BtnLogin": "Einloggen"
-	},
-
-	"MAPSIDEBAR": {
-		"labelPerson": "Benutzerkonto",
-		"labelTourism": "Touristik",
-		"labelTourismTitle": "Touristenführer",
-		"labelTourismInstruction": "Hier können wir beliebigen Text schreiben, Buttons einfügen usw.",
-		"labelTourismContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam a incidunt quaerat ullam obcaecati facilis cum modi repudiandae recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos deserunt ut, iusto nostrum fuga porro consectetur officiis consequuntur repellat commodi vero in quibusdam dolorum reiciendis hic quia corporis quae quis.",
-		"labelTourismGalleryInfo": "Informationen zu Orten",
-		"labelLegend": "Legende",
-		"labelLegendTitle": "Legende",
-		"labelLegendListOne": "Stadtstraßen",
-		"labelLegendListTwo": "Asphaltierte Straßen",
-		"labelLegendListThree": "Straßen ohne Belag",
-		"labelLegendListFour": "Radwege",
-		"labelLegendListFive": "Stadtradstation",
-		"labelLegendListSix": "Grenzen"
-	}
+  "GEOCODING": {
+    "inputSearchPlaceHolder": "Suche ..."
+  },
+  "LOGIN": {
+    "titleLogintextCenter": "Ins Konto einloggen",
+    "matErrorMailAddress": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "matErrorMailRequired": "E-Mail-Adresse erforderlich",
+    "matErrorPassword": "Das Passwort muss acht oder mehr Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten",
+    "matErrorPasswordRequired": "Passwort erforderlich",
+    "BtnLogin": "Einloggen"
+  },
+  "MAPSIDEBAR": {
+    "labelPerson": "Benutzerkonto",
+    "labelTourism": "Touristik",
+    "labelTourismTitle": "Touristenführer",
+    "labelTourismInstruction": "Hier können wir beliebigen Text schreiben, Buttons einfügen usw.",
+    "labelTourismContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam a incidunt quaerat ullam obcaecati facilis cum modi repudiandae recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos deserunt ut, iusto nostrum fuga porro consectetur officiis consequuntur repellat commodi vero in quibusdam dolorum reiciendis hic quia corporis quae quis.",
+    "labelTourismGalleryInfo": "Informationen zu Orten",
+    "labelLegend": "Legende",
+    "labelLegendTitle": "Legende",
+    "labelLegendListOne": "Stadtstraßen",
+    "labelLegendListTwo": "Asphaltierte Straßen",
+    "labelLegendListThree": "Straßen ohne Belag",
+    "labelLegendListFour": "Radwege",
+    "labelLegendListFive": "Stadtradstation",
+    "labelLegendListSix": "Grenzen"
+  }
 }

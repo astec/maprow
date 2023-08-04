@@ -1,14 +1,14 @@
 {
-	"layers": {
-		"layer": [
-			{
-				"name": "facility",
-				"href": "http://localhost/geoserver/rest/workspaces/unacorn/layers/facility.json"
-			},
-			{
-				"name": "opensky",
-				"href": "http://localhost/geoserver/rest/workspaces/unacorn/layers/opensky.json"
-			}
-		]
-	}
+  "layers": {
+    "layer": [
+      {
+        "name": "facility",
+        "href": "http://localhost/geoserver/rest/workspaces/unacorn/layers/facility.json"
+      },
+      {
+        "name": "opensky",
+        "href": "http://localhost/geoserver/rest/workspaces/unacorn/layers/opensky.json"
+      }
+    ]
+  }
 }

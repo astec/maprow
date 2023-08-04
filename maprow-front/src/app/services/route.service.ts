@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as L from 'leaflet';
 import * as $ from 'jquery';
 import { environment } from 'src/environments/environment';
-import { geojsonMarkerOptions } from '../app.constants';
+import { geojsonMarkerOptions, wfsDefaultParameters } from '../app.constants';
 
 
 
@@ -14,13 +14,8 @@ import { geojsonMarkerOptions } from '../app.constants';
     constructor() {}
 
     makeLayer(workspace: string, geoLayer: string){
-        let defaultParameters = {
-            service : "WFS",
-            version : "1.0.0",
-            request : "GetFeature",
-            typeName : workspace + ":" + geoLayer, 
-            outputFormat : "application/json"
-        };
+        let defaultParameters = wfsDefaultParameters;
+        defaultParameters.typeName = workspace + ":" + geoLayer;
         let parameters = L.Util.extend(defaultParameters);
         let urlRoot = environment.geoServerUrl + "/" + workspace + "/ows";
         let URL = urlRoot + L.Util.getParamString(parameters);
@@ -29,12 +24,14 @@ import { geojsonMarkerOptions } from '../app.constants';
 
         function style(feature:any){
             if(feature.properties.featureType){
-                if(feature.properties.featureType.toLowerCase().includes("special route")) {return {color:"yellow"}; }
+                if(feature.properties.featureType.toLowerCase().includes("special route")) {
+                    return {color:"yellow"}; 
+                }
                 else {return {color:"#03cffc"};}
             }
             else {return {color:"#03cffc"};} 
         }
-​
+
         function getData(response: any){
             L.geoJSON(response, {
                 onEachFeature: function (feature, layer) {

@@ -50,3 +50,11 @@ export const geojsonMarkerOptions = {
     opacity: 1,
     fillOpacity: 0.8
 };
+
+export const wfsDefaultParameters = {
+  service : "WFS",
+  version : "1.0.0",
+  request : "GetFeature",
+  typeName: "",
+  outputFormat : "application/json"
+};
