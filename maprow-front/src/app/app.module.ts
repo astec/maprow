@@ -33,7 +33,6 @@ import { LoginComponent } from './components/login/login.component';
 
 import { NominatimService } from './services/nominatim.service';
 import { PersonService } from './services/person.service';
-import { StationsService } from './services/stations.service';
 import { FullScreenBtnComponent } from './components/map/full-screen-btn/full-screen-btn.component';
 
 
@@ -82,7 +81,7 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
 			},
 		}),
 	],
-	providers: [NominatimService, PersonService, StationsService],
+	providers: [NominatimService, PersonService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

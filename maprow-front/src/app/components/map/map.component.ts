@@ -9,7 +9,6 @@ import {
 import { MapPoint } from '../../shared/map-point.model';
 import { NominatimResponse } from '../../shared/nominatim-response.model';
 import { Watermark } from './watermark';
-import { StationsService } from '../../services/stations.service';
 import { RouteService } from 'src/app/services/route.service';
 
 import {
@@ -48,7 +47,7 @@ export class MapComponent implements OnInit {
 		clickBehavior: { inView: 'stop', outOfView: 'setView', inViewNotFollowing: 'setView' },
 	};
 
-	constructor(private stationsService: StationsService, private routeService: RouteService) {}
+	constructor(private routeService: RouteService) {}
 
 	ngOnInit() {
 		this.initializeDefaultMapPoint();
@@ -60,7 +59,6 @@ export class MapComponent implements OnInit {
 		this.createMarker();
 		this.initializeLayers();
 		new Watermark({ position: 'topright' }).addTo(this.map);
-		this.stationsService.makeStationsMarkers(this.map);
 		this.markerClusterGroup = new MarkerClusterGroup({ removeOutsideVisibleBounds: true });
 	}
 
@@ -87,7 +85,7 @@ export class MapComponent implements OnInit {
         let jedrzychowCampusARoute = this.routeService.makeLayer('maprow','jedrzychow-campus-A');
         let jedrzychowCampusBRoute = this.routeService.makeLayer('maprow','jedrzychow-campus-B');
         let sulechowskaKrosnienskaRoute = this.routeService.makeLayer('maprow','sulechowska-krosnieniska');
-
+		let bikeStations = this.routeService.makeLayer('maprow','ZG-bikeStations');
 		let baseLayers = {
 			'OpenStreet Map': OSM,
 			'CartoDB Dark': cartoDBDark,
@@ -97,6 +95,7 @@ export class MapComponent implements OnInit {
 		let overlayMaps = {
 			'Bike Map': bikeMap,
        		'poi': poi,
+			'Bike Stations': bikeStations,
 			'Cisowa - Campus A': campusesRoute,
 			'Os. Leśne - Campus A': lesneCampusARoute,
 			'Jędrzychów - Campus A': jedrzychowCampusARoute,

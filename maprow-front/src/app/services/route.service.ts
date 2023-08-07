@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as L from 'leaflet';
 import * as $ from 'jquery';
 import { environment } from 'src/environments/environment';
-import { geojsonMarkerOptions, wfsDefaultParameters } from '../app.constants';
+import { geojsonMarkerOptions, iconDefault, wfsDefaultParameters } from '../app.constants';
 
 
 
@@ -37,14 +37,18 @@ import { geojsonMarkerOptions, wfsDefaultParameters } from '../app.constants';
                 onEachFeature: function (feature, layer) {
                     let popupContent = "<center>";
                     if(feature.properties.name) popupContent += feature.properties.name += "<br>";
-                    if(feature.properties.length_in_km) popupContent += feature.properties.length_in_km + "<br>";
+                    if(feature.properties.length_in_km) popupContent += feature.properties.length_in_km + "km<br>";
                     if(feature.properties.picture) popupContent += feature.properties.picture + "<br>";
                     if(feature.properties.featureType) {featureType = feature.properties.featureType}
                     popupContent += "</center>";
                     layer.bindPopup(popupContent);
                 },
                 pointToLayer: function(feature, latlng){
-                    return L.circleMarker(latlng, geojsonMarkerOptions);
+                    if(feature.properties.featureType == "Bike station")
+                    {
+                        return L.marker(latlng, {icon:iconDefault});
+                    }
+                    else{return L.circleMarker(latlng, geojsonMarkerOptions);}
                 },
                 style:style,
             }).addTo(layer);
