@@ -1,8 +1,8 @@
 <div class="text-center">
-    <h4 class="text-center"> {{ 'LOGIN.titleLogintextCenter' | translate }}</h4>
+    <h4 class="text-login"> {{ 'LOGIN.titleLogintextCenter' | translate }}</h4>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
         <div class="example-container">
-            <div>
+            <div hidden="true">
                 <mat-form-field>
                     <input matInput placeholder="Email" formControlName="email">
                     <mat-error
@@ -15,7 +15,7 @@
                     </mat-error>
                 </mat-form-field>
             </div>
-            <div class="mt-top-2">
+            <div class="mt-top-2" hidden="true">
                 <mat-form-field>
                     <input matInput type="password" placeholder="Password" formControlName="password" autocomplete="on">
                     <mat-error *ngIf="!loginForm.get('password')?.errors?.required">
@@ -28,7 +28,7 @@
                 </mat-form-field>
             </div>
             <div class="mt-top">
-                <button [disabled]="!loginForm.valid" mat-raised-button color="primary" mat-button (click)="onSubmit()">{{'LOGIN.BtnLogin' | translate}}</button>
+                <button hidden="true" [disabled]="!loginForm.valid" mat-raised-button color="primary" mat-button (click)="onSubmit()">{{'LOGIN.BtnLogin' | translate}}</button>
             </div>
             <div class="content" role="main">
                 <div class="card-container">
@@ -37,9 +37,6 @@
                             <div class="col-md-4 mt-2 m-1 ">
                                 <button type="button" class="login-with-google-btn" (click)="onGoogleLogin()" #loginRef>
                                     Sign in with Google
-                                </button>
-                                <button type="button" class="login-with-rublon" #loginRef>
-                                    Sign in with Rublon
                                 </button>
                             </div>
                         </div>

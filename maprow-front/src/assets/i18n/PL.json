@@ -3,7 +3,7 @@
 		"inputSearchPlaceHolder": "szukaj..."
 	},
 	"LOGIN": {
-		"titleLogintextCenter": "Zaloguj się do konta",
+		"titleLogintextCenter": "Zaloguj się do konta za pomocą:",
 		"matErrorMailAddress": "Proszę wprowadzić prawidłowy adres e-mail",
 		"matErrorMailRequired": "Wymagany adres e-mail",
 		"matErrorPassword": "Hasło musi się składać z ośmiu lub więcej znaków, musi zawierać przynajmniej jedną literę dużą, literę małą, cyfrę i znak specjalny",
