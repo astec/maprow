@@ -6,11 +6,11 @@
                 <mat-form-field>
                     <input matInput placeholder="Email" formControlName="email">
                     <mat-error
-                        *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
+                            *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
                         {{ "MAP.matErrorMailAddress" | translate }}
                     </mat-error>
                     <mat-error
-                        *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.required">
+                            *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.required">
                         {{ 'LOGIN.matErrorMailRequired' | translate }}
                     </mat-error>
                 </mat-form-field>
@@ -22,7 +22,7 @@
                         {{ 'LOGIN.matErrorPassword' | translate }}
                     </mat-error>
                     <mat-error
-                        *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.required">
+                            *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.required">
                         {{ 'LOGIN.matErrorPasswordRequired' | translate }}
                     </mat-error>
                 </mat-form-field>
