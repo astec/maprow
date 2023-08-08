@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { ViewChild } from "@angular/core";
 import { ElementRef } from "@angular/core";
 
+
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -11,6 +12,7 @@ import { ElementRef } from "@angular/core";
 })
 export class LoginComponent {
   loginForm: FormGroup | any;
+  isLoggedIn: boolean = false;
   title = "Login With Google";
   auth2: any;
   @ViewChild("loginRef", { static: true }) loginElement!: ElementRef;
@@ -51,6 +53,15 @@ export class LoginComponent {
             name: profile.getName(),
           })
         );
+        this.router.navigate(['/login']);
+        const popup = document.createElement('div');
+              popup.className = 'custom-popup';
+              popup.textContent = 'Zalogowano!';
+              document.body.appendChild(popup);
+
+              setTimeout(() => {
+                document.body.removeChild(popup);
+              }, 3000);
       },
       (error: any) => {
         alert(JSON.stringify(error, undefined, 2));
@@ -86,10 +97,13 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log("Przycisk Zaloguj się został kliknięty!");
     if (!this.loginForm.valid) {
       return;
     }
     this.router.navigate(['/login']);
   }
+
+  onGoogleLogin() {
+      this.callLogin();
+    }
 }

@@ -4,7 +4,6 @@ import * as L from 'leaflet';
 import { iconDefault } from '../app.constants'
 
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -13,6 +12,7 @@ export class StationsService {
   markers: any = L.markerClusterGroup({disableClusteringAtZoom: 13});
 
   constructor(private http: HttpClient) {}
+
 
   makeStationsMarkers(map: L.Map): void {
     L.Marker.prototype.options.icon = iconDefault;

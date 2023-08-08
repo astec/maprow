@@ -39,6 +39,7 @@ export class MapComponent implements OnInit {
 	results!: NominatimResponse[];
 	// miniMap!: any;
 
+
 	public locateOptions: Control.LocateOptions = {
 		flyTo: false,
 		keepCurrentZoomLevel: true,
@@ -95,7 +96,7 @@ export class MapComponent implements OnInit {
     transparent: true
 }).addTo(this.map);
 		var controlLayers = control.layers(baseLayers, overlayMaps).addTo(this.map);
-	}
+    };
 
 	private initializeMapOptions() {
 		this.options = {

@@ -4,11 +4,15 @@
 
 const applicationServerUrl = 'http://localhost:8081';
 const geoServerUrl         =  'http://localhost:8080/geoserver';
+const mapAngular         =  'http://localhost:4200';
+const loginUrl         =  'http://localhost:4200/login';
 
 export const environment = {
   production: false,
   applicationServerUrl: applicationServerUrl+'/api',
-  geoServerUrl: geoServerUrl
+  mapAngular : mapAngular+'/api',
+  geoServerUrl: geoServerUrl,
+  loginUrl: loginUrl
 };
 
 /*

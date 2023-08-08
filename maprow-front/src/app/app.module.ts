@@ -19,6 +19,7 @@ import { NgxLeafletLocateModule } from '@runette/ngx-leaflet-locate';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 
 import { AppComponent } from './app.component';
@@ -30,7 +31,6 @@ import { PersonComponent } from './components/person/person.component';
 import { MapSidebarComponent } from './components/map-sidebar/map-sidebar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { NominatimService } from './services/nominatim.service';
@@ -76,6 +76,7 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
 		NgxLeafletLocateModule,
 		ReactiveFormsModule,
 		TextFieldModule,
+		MatSnackBarModule,
 		NgxWebstorageModule.forRoot(),
 		TranslateModule.forRoot({
 			loader: {
