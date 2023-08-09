@@ -37,7 +37,6 @@ import { geojsonMarkerOptions, iconDefault, wfsDefaultParameters } from '../app.
                 onEachFeature: function (feature, layer) {
                     let popupContent = "<center>";
                     if(feature.properties.name) popupContent += feature.properties.name += "<br>";
-                    if(feature.properties.length_in_km) popupContent += feature.properties.length_in_km + "km<br>";
                     if(feature.properties.picture) popupContent += feature.properties.picture + "<br>";
                     if(feature.properties.featureType) {featureType = feature.properties.featureType}
                     popupContent += "</center>";
