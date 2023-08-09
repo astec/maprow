@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ViewChild } from "@angular/core";
 import { ElementRef } from "@angular/core";
-
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: "app-login",
@@ -12,7 +12,6 @@ import { ElementRef } from "@angular/core";
 })
 export class LoginComponent {
   loginForm: FormGroup | any;
-  isLoggedIn: boolean = false;
   title = "Login With Google";
   auth2: any;
   @ViewChild("loginRef", { static: true }) loginElement!: ElementRef;
@@ -73,8 +72,7 @@ export class LoginComponent {
     (<any>window)["googleSDKLoaded"] = () => {
       (<any>window)["gapi"].load("auth2", () => {
         this.auth2 = (<any>window)["gapi"].auth2.init({
-          client_id:
-            "669721814180-phfqn6ngp2gl0jmram59vpt39keq9ej4.apps.googleusercontent.com",
+          client_id: environment.googleClientId,
           plugin_name: "login",
           cookiepolicy: "single_host_origin",
           scope: "profile email",

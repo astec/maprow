@@ -38,7 +38,6 @@ export class MapComponent implements OnInit {
 	markerClusterData = [];
 	results!: NominatimResponse[];
 
-
 	public locateOptions: Control.LocateOptions = {
 		flyTo: false,
 		keepCurrentZoomLevel: true,
